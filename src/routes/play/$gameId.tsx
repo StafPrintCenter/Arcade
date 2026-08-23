@@ -8,7 +8,7 @@ import { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import { BADGES, GAMES } from "@/lib/arcade/data";
 import type { GameId, GameResult } from "@/lib/arcade/types";
 import { ShareProgress, type GameProps } from "@/components/arcade";
-import { PageHeader, PageFooter } from "@/components/site";
+import { ArcadeShell } from "@/components/site/ArcadeShell";
 
 import {
   PrintingMaster,
@@ -92,34 +92,31 @@ function PlayPage() {
     setRunKey((k) => k + 1);
   }
 
-  return (
-    <div className="flex min-h-screen flex-col bg-background">
-      {/* Utilisation du PageHeader unifié */}
-      <PageHeader>
-        <div className="flex items-center justify-between gap-4 flex-1 ml-4 sm:ml-8">
-          <p className="font-display text-lg truncate">{game.name}</p>
-          <div className="flex items-center gap-4 text-sm shrink-0">
-            <span className="flex items-center gap-1 text-primary font-medium">
-              <Gauge className="size-4" /> {score} pts
-            </span>
-            <span className="hidden sm:inline text-muted-foreground">{status}</span>
-          </div>
-        </div>
-      </PageHeader>
+  const customHeaderContent = (
+    <div className="flex items-center justify-between gap-4 flex-1 ml-4 sm:ml-8">
+      <p className="font-display text-lg truncate">{game.name}</p>
+      <div className="flex items-center gap-4 text-sm shrink-0">
+        <span className="flex items-center gap-1 text-primary font-medium">
+          <Gauge className="size-4" /> {score} pts
+        </span>
+        <span className="hidden sm:inline text-muted-foreground">{status}</span>
+      </div>
+    </div>
+  );
 
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6">
-        {hydrated ? (
-          <Game
-            key={runKey}
-            profile={profile}
-            setScore={setScore}
-            setStatus={setStatus}
-            onFinish={handleFinish}
-          />
-        ) : (
-          <p className="text-center text-sm text-muted-foreground">Chargement de votre profil…</p>
-        )}
-      </main>
+  return (
+    <ArcadeShell headerContent={customHeaderContent}>
+      {hydrated ? (
+        <Game
+          key={runKey}
+          profile={profile}
+          setScore={setScore}
+          setStatus={setStatus}
+          onFinish={handleFinish}
+        />
+      ) : (
+        <p className="text-center text-sm text-muted-foreground">Chargement de votre profil…</p>
+      )}
 
       <AnimatePresence>
         {result ? (
@@ -186,8 +183,6 @@ function PlayPage() {
           </motion.div>
         ) : null}
       </AnimatePresence>
-
-      <PageFooter />
-    </div>
+    </ArcadeShell>
   );
 }
