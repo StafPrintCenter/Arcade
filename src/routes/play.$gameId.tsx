@@ -8,8 +8,8 @@ import { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import { BADGES, GAMES } from "@/lib/arcade/data";
 import type { GameId, GameResult } from "@/lib/arcade/types";
 import { ShareProgress, type GameProps } from "@/components/arcade";
-import { PageFooter } from "@/components/site";
-import logo from "@/assets/logos.json";
+import { PageHeader, PageFooter } from "@/components/site";
+
 import {
   PrintingMaster,
   StudioManager,
@@ -70,7 +70,7 @@ function PlayPage() {
 
   if (!game || !Game) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-4">
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 text-center">
         <h1 className="font-display text-2xl">Jeu introuvable</h1>
         <Button asChild>
           <Link to="/">Retour au hub</Link>
@@ -93,24 +93,21 @@ function PlayPage() {
   }
 
   return (
-    <div className="min-h-screen">
-      <div className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
-          <Link to="/" className="transition-opacity hover:opacity-80">
-            <img src={logo.dc} alt="Logo SPC" className="h-10 md:h-12 w-auto" />
-          </Link>
-
-          <p className="font-display text-lg">{game.name}</p>
-          <div className="flex items-center gap-4 text-sm">
-            <span className="flex items-center gap-1 text-primary">
+    <div className="flex min-h-screen flex-col bg-background">
+      {/* Utilisation du PageHeader unifié */}
+      <PageHeader>
+        <div className="flex items-center justify-between gap-4 flex-1 ml-4 sm:ml-8">
+          <p className="font-display text-lg truncate">{game.name}</p>
+          <div className="flex items-center gap-4 text-sm shrink-0">
+            <span className="flex items-center gap-1 text-primary font-medium">
               <Gauge className="size-4" /> {score} pts
             </span>
-            <span className="text-muted-foreground">{status}</span>
+            <span className="hidden sm:inline text-muted-foreground">{status}</span>
           </div>
         </div>
-      </div>
+      </PageHeader>
 
-      <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6">
         {hydrated ? (
           <Game
             key={runKey}
@@ -120,7 +117,7 @@ function PlayPage() {
             onFinish={handleFinish}
           />
         ) : (
-          <p className="text-sm text-muted-foreground">Chargement de votre profil…</p>
+          <p className="text-center text-sm text-muted-foreground">Chargement de votre profil…</p>
         )}
       </main>
 
