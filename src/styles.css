@@ -93,8 +93,8 @@
   --border: oklch(0.36 0.06 55 / 16%);
   --input: oklch(0.36 0.06 55 / 22%);
   --ring: oklch(0.66 0.19 45);
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
   --gradient-arcade: linear-gradient(135deg, oklch(0.66 0.19 45), oklch(0.72 0.16 82));
   --gradient-xp: linear-gradient(90deg, oklch(0.66 0.19 45), oklch(0.79 0.17 78));
   --glow-primary: 0 0 0 1px color-mix(in oklab, var(--primary) 28%, transparent), 0 12px 34px -16px color-mix(in oklab, var(--primary) 70%, transparent);
@@ -178,7 +178,9 @@
     background-attachment: fixed;
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-display);
   }
 }
