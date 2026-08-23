@@ -11,7 +11,7 @@ function shareUrl() {
 export function ShareProgress({ message, compact }: { message: string; compact?: boolean }) {
   const [copied, setCopied] = useState(false);
   const url = shareUrl();
-  const text = `${message} — SPC Arcade, le hub de jeux de STAF PRINT CENTER.`;
+  const text = `${message} - SPC Arcade, le hub de jeux de STAF PRINT CENTER.`;
   const e = encodeURIComponent;
 
   const links = [
