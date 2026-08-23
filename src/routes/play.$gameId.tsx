@@ -11,16 +11,18 @@ import type { GameProps } from "@/components/arcade/game-kit";
 import { PageFooter } from "@/components/site";
 import logo from "@/assets/logos.json";
 import { ShareProgress } from "@/components/arcade/share-progress";
-import { PrintingMaster } from "@/components/arcade/games/printing-master";
-import { StudioManager } from "@/components/arcade/games/studio-manager";
-import { WebQuest } from "@/components/arcade/games/web-quest";
-import { SkillArcade } from "@/components/arcade/games/skill-arcade";
-import { WebBuilder } from "@/components/arcade/games/web-builder";
-import { VisualCreator } from "@/components/arcade/games/visual-creator";
-import { ErrorHunt } from "@/components/arcade/games/error-hunt";
-import { PixelArt } from "@/components/arcade/games/pixel-art";
-import { LogoSteps } from "@/components/arcade/games/logo-steps";
-import { BackEraser } from "@/components/arcade/games/back-eraser";
+import {
+  PrintingMaster,
+  StudioManager,
+  WebQuest,
+  SkillArcade,
+  WebBuilder,
+  VisualCreator,
+  ErrorHunt,
+  PixelArt,
+  LogoSteps,
+  BackEraser,
+} from "@/components/arcade/games";
 
 export const Route = createFileRoute("/play/$gameId")({
   head: () => ({
