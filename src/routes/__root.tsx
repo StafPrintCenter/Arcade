@@ -3,7 +3,8 @@ import { Outlet, Link, createRootRouteWithContext, useRouter, HeadContent, Scrip
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportError } from "@/lib/error/reporting";
+import { SITE } from "@/data/site";
+import { NotFoundComponent, ErrorComponent } from "@/components/errors";
 
 function NotFoundComponent() {
   return (
