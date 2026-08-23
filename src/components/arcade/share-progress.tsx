@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 function shareUrl() {
   if (typeof window === "undefined") return "https://stafprint.com";
-  return `${window.location.origin}/arcade`;
+  return `${window.location.origin}`;
 }
 
 export function ShareProgress({ message, compact }: { message: string; compact?: boolean }) {
