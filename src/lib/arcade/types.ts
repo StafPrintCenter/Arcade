@@ -17,6 +17,15 @@ export interface SimpleGameData {
   played: number;
 }
 
+export interface Game {
+  id: GameId;
+  name: string;
+  category: string;
+  tagline: string;
+  difficulty: string;
+  icon: string;
+}
+
 export interface ArcadeProfile {
   nickname: string;
   gender: Gender;
