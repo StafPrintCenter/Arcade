@@ -26,17 +26,3 @@ export const SITE = {
     stars: "4.9",
   }
 };
-
-export const NAV_LINKS = [
-  { label: "Services", to: "/services" },
-  { label: "Réalisations", to: "/projects" },
-  { label: "Formations", to: "/training" },
-  { label: "Blog", to: "/articles" },
-  { label: "FAQs", to: "/faqs" },
-] as const;
-
-export const FOOTER_LINKS = [
-  { label: "Mentions légales", to: "/legal/mentions" },
-  { label: "Conditions Générales de Vente", to: "/legal/cgv" },
-  { label: "Confidentialité", to: "/legal/privacy" },
-] as const;
