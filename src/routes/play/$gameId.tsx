@@ -9,7 +9,6 @@ import { BADGES, GAMES } from "@/lib/arcade/data";
 import type { GameId, GameResult } from "@/lib/arcade/types";
 import { ShareProgress, type GameProps } from "@/components/arcade";
 import { ArcadeShell } from "@/components/site/ArcadeShell";
-
 import {
   PrintingMaster,
   StudioManager,
@@ -22,6 +21,7 @@ import {
   LogoSteps,
   BackEraser,
 } from "@/components/arcade/games";
+import { SITE } from "@/data/site";
 
 export const Route = createFileRoute("/play/$gameId")({
   head: () => ({
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/play/$gameId")({
       { title: "Partie en cours | SPC Arcade" },
       { name: "description", content: "Session de jeu SPC Arcade : score, chronomètre et XP en temps réel." },
       { property: "og:title", content: "Partie en cours - SPC Arcade" },
-      { property: "og:description", content: "Jouez et gagnez de l'XP dans le hub de jeux STAF PRINT CENTER." },
+      { property: "og:description", content: `Jouez et gagnez de l'XP dans le hub de jeux ${SITE.name}.` },
     ],
   }),
   component: PlayPage,
