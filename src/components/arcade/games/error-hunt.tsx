@@ -156,7 +156,7 @@ export function ErrorHunt({ setScore, setStatus, onFinish }: GameProps) {
 
           <div className={zone("footer", "mt-4")} onClick={() => toggle("footer")}>
             <p className={cn(has("footer") ? "text-[6px] text-slate-300" : "text-[10px] text-slate-500")}>
-              Offre valable jusqu'au 30/09 — STAF PRINT CENTER, Porto-Novo.
+              Offre valable jusqu'au 30/09 - STAF PRINT CENTER, Porto-Novo.
             </p>
           </div>
         </div>
@@ -170,7 +170,7 @@ export function ErrorHunt({ setScore, setStatus, onFinish }: GameProps) {
             {ALL.filter((id) => bad.includes(id) || picked.includes(id)).map((id) => (
               <p key={id} className="text-xs text-muted-foreground">
                 <span className={bad.includes(id) ? "text-success" : "text-destructive"}>{DEFECTS[id].label}</span>{" "}
-                — {bad.includes(id) ? DEFECTS[id].explain : DEFECTS[id].ok}
+                - {bad.includes(id) ? DEFECTS[id].explain : DEFECTS[id].ok}
               </p>
             ))}
           </div>
