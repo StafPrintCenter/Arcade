@@ -65,7 +65,7 @@ export function WebBuilder({ setScore, setStatus, onFinish }: GameProps) {
   const step = steps[index]!;
   const max = useMemo(() => steps.length * 20, [steps.length]);
 
-  useEffect(() => setStatus(`Étape ${index + 1}/${steps.length} — ${step.title}`), [index, setStatus, step.title]);
+  useEffect(() => setStatus(`Étape ${index + 1}/${steps.length} - ${step.title}`), [index, setStatus, step.title]);
 
   function choose(i: number) {
     if (picked !== null) return;
