@@ -67,7 +67,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* LIGHT — palette chaude (sable, crème, orange STAF) */
+/* LIGHT - palette chaude (sable, crème, orange STAF) */
 :root {
   --radius: 0.625rem;
   --background: oklch(0.972 0.021 82);
@@ -115,7 +115,7 @@
   --sidebar-ring: oklch(0.66 0.19 45);
 }
 
-/* DARK — palette noire profonde */
+/* DARK - palette noire profonde */
 .dark {
   --background: oklch(0.145 0.006 285);
   --foreground: oklch(0.972 0.008 248);
