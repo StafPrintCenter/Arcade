@@ -8,6 +8,7 @@ import { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import { BADGES, GAMES } from "@/lib/arcade/data";
 import type { GameId, GameResult } from "@/lib/arcade/types";
 import type { GameProps } from "@/components/arcade/game-kit";
+import { PageHeader, PageFooter } from "@/components/site";
 import { ShareProgress } from "@/components/arcade/share-progress";
 import { PrintingMaster } from "@/components/arcade/games/printing-master";
 import { StudioManager } from "@/components/arcade/games/studio-manager";
@@ -185,6 +186,9 @@ function PlayPage() {
           </motion.div>
         ) : null}
       </AnimatePresence>
+
+      <PageFooter />
+      <PageFooter />
     </div>
   );
 }
