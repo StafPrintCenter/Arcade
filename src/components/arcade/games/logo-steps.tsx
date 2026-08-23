@@ -80,7 +80,7 @@ export function LogoSteps({ setScore, setStatus, onFinish }: GameProps) {
     setOrder([]);
   }, [brief]);
 
-  useEffect(() => setStatus(`Logo ${round + 1}/${briefs.length} — ${brief.name}`), [brief.name, round, setStatus]);
+  useEffect(() => setStatus(`Logo ${round + 1}/${briefs.length} - ${brief.name}`), [brief.name, round, setStatus]);
 
   function validate() {
     let gained = 0;
