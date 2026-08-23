@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { EyeOff, Lock, ShieldCheck, Share2 } from "lucide-react";
+import { EyeOff, Lock, ShieldCheck, Share2, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AVATARS, GENDERS } from "@/lib/arcade/data";
 import type { ArcadeProfile, Gender } from "@/lib/arcade/types";
 import { SITE } from "@/data/site";
 import { cn } from "@/lib/utils";
+import { updateGaConsent } from "@/components/site/CookieConsent";
 
 function Overlay({ children }: { children: React.ReactNode }) {
   return (
@@ -14,7 +15,7 @@ function Overlay({ children }: { children: React.ReactNode }) {
       <motion.div
         initial={{ opacity: 0, y: 18, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        className="card-arcade w-full max-w-lg p-6 sm:p-8"
+        className="card-arcade max-h-[90vh] w-full max-w-lg overflow-y-auto p-6 sm:p-8"
       >
         {children}
       </motion.div>
@@ -23,23 +24,33 @@ function Overlay({ children }: { children: React.ReactNode }) {
 }
 
 export function TermsBanner({ onAccept }: { onAccept: () => void }) {
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(true);
+
+  const handleAccept = () => {
+    updateGaConsent(analyticsEnabled ? "accepted" : "declined");
+    onAccept();
+  };
+
+  const baseUrl = SITE?.frontUrl ?? "";
+  const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
+  const mentionsLegalUrl = `${cleanBaseUrl}/legal/mentions#cookies`;
+
   return (
     <Overlay>
       <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/15 text-primary neon-glow">
         <ShieldCheck className="size-6" />
       </span>
-      <h2 className="mt-4 font-display text-2xl">Conditions d'utilisation de SPC Arcade</h2>
+      <h2 className="mt-4 font-display text-2xl">Conditions & Confidentialité</h2>
       <p className="mt-1 text-sm text-muted-foreground">
-        Avant de jouer, prenez connaissance de ces quelques règles simples.
+        Avant de jouer sur SPC Arcade, prenez connaissance de ces quelques règles simples.
       </p>
 
       <ul className="mt-5 space-y-3 text-sm">
         <li className="flex gap-3 rounded-xl border border-border bg-secondary/40 p-3">
           <Lock className="mt-0.5 size-4 shrink-0 text-primary" />
           <span>
-            <strong>Aucune donnée n'est collectée.</strong> Votre pseudo, votre profil et vos scores restent
-            enregistrés uniquement dans votre navigateur (stockage local). Rien n'est envoyé à {SITE.name}
-            ni à un tiers.
+            <strong>Données locales uniquement.</strong> Votre pseudo, votre profil et vos scores restent
+            enregistrés uniquement dans votre navigateur (stockage local).
           </span>
         </li>
         <li className="flex gap-3 rounded-xl border border-border bg-secondary/40 p-3">
@@ -52,18 +63,52 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
         <li className="flex gap-3 rounded-xl border border-border bg-secondary/40 p-3">
           <Share2 className="mt-0.5 size-4 shrink-0 text-primary" />
           <span>
-            <strong>Le partage est volontaire.</strong> Vous pouvez partager votre progression sur Facebook,
-            LinkedIn, WhatsApp ou X quand vous le souhaitez - jamais automatiquement.
+            <strong>Le partage est volontaire.</strong> Vous pouvez partager votre progression quand vous le
+            souhaitez — jamais automatiquement.
           </span>
         </li>
       </ul>
 
+      {/* Option Analytics intégrée */}
+      <div className="mt-4 rounded-xl border border-border bg-secondary/20 p-3.5">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <BarChart2 className="size-4 shrink-0 text-primary" />
+            <div>
+              <p className="text-sm font-semibold leading-none text-foreground">
+                Google Analytics
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Mesure anonyme d'audience pour améliorer l'expérience.
+              </p>
+            </div>
+          </div>
+          <label className="relative inline-flex cursor-pointer items-center shrink-0">
+            <input
+              type="checkbox"
+              checked={analyticsEnabled}
+              onChange={(e) => setAnalyticsEnabled(e.target.checked)}
+              className="peer sr-only"
+            />
+            <div className="peer h-5 w-9 rounded-full bg-border after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-focus:outline-none"></div>
+          </label>
+        </div>
+      </div>
+
       <p className="mt-4 text-xs text-muted-foreground">
-        Vider le cache du navigateur efface définitivement votre progression. Les jeux sont pédagogiques et
-        fictifs ; les briefs clients sont imaginaires.
+        Vider le cache du navigateur efface votre progression. En savoir plus dans nos{" "}
+        <a
+          href={mentionsLegalUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-primary"
+        >
+          mentions légales
+        </a>
+        .
       </p>
 
-      <Button className="mt-6 w-full" onClick={onAccept}>
+      <Button className="mt-6 w-full cursor-pointer" onClick={handleAccept}>
         J'accepte et je joue
       </Button>
     </Overlay>
@@ -113,7 +158,7 @@ export function ProfileSetup({
                 type="button"
                 onClick={() => setAvatar(a)}
                 className={cn(
-                  "flex size-11 items-center justify-center rounded-xl border border-border bg-secondary/40 text-xl",
+                  "flex size-11 items-center justify-center rounded-xl border border-border bg-secondary/40 text-xl cursor-pointer",
                   avatar === a && "border-primary bg-primary/15 neon-glow",
                 )}
               >
@@ -132,7 +177,7 @@ export function ProfileSetup({
                 type="button"
                 onClick={() => setGender(g.id)}
                 className={cn(
-                  "rounded-xl border border-border bg-secondary/40 px-3 py-2 text-sm",
+                  "rounded-xl border border-border bg-secondary/40 px-3 py-2 text-sm cursor-pointer",
                   gender === g.id && "border-primary bg-primary/15",
                 )}
               >
@@ -150,7 +195,7 @@ export function ProfileSetup({
 
       <div className="mt-6 flex gap-2">
         <Button
-          className="flex-1"
+          className="flex-1 cursor-pointer"
           disabled={nickname.trim().length < 2}
           onClick={() =>
             onSave({
@@ -165,7 +210,7 @@ export function ProfileSetup({
           {profile.onboarded ? "Enregistrer" : "Entrer dans l'Arcade"}
         </Button>
         {onCancel ? (
-          <Button variant="secondary" className="flex-1" onClick={onCancel}>
+          <Button variant="secondary" className="flex-1 cursor-pointer" onClick={onCancel}>
             Annuler
           </Button>
         ) : null}
