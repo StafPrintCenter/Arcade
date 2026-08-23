@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Check, Copy, Facebook, Linkedin, MessageCircle, Share2 } from "lucide-react";
+import { Check, Copy, MessageCircle, Share2 } from "lucide-react";
+import { WhatsAppIcon, FacebookIcon, LinkedinIcon, XIcon } from "@/components/site/icons";
 import { Button } from "@/components/ui/button";
 
 function shareUrl() {
@@ -14,8 +15,8 @@ export function ShareProgress({ message, compact }: { message: string; compact?:
   const e = encodeURIComponent;
 
   const links = [
-    { name: "Facebook", icon: Facebook, href: `https://www.facebook.com/sharer/sharer.php?u=${e(url)}&quote=${e(text)}` },
-    { name: "LinkedIn", icon: Linkedin, href: `https://www.linkedin.com/sharing/share-offsite/?url=${e(url)}` },
+    { name: "Facebook", icon: FacebookIcon, href: `https://www.facebook.com/sharer/sharer.php?u=${e(url)}&quote=${e(text)}` },
+    { name: "LinkedIn", icon: LinkedinIcon, href: `https://www.linkedin.com/sharing/share-offsite/?url=${e(url)}` },
     { name: "WhatsApp", icon: MessageCircle, href: `https://wa.me/?text=${e(`${text} ${url}`)}` },
     { name: "X", icon: Share2, href: `https://twitter.com/intent/tweet?text=${e(text)}&url=${e(url)}` },
   ];
