@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Outlet, Link, createRootRouteWithContext, useRouter, HeadContent, Scripts } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
-
+import { Outlet, createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/react-router";
+import { type ReactNode } from "react";
+import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
 import { SITE } from "@/data/site";
 import { NotFoundComponent, ErrorComponent } from "@/components/errors";
