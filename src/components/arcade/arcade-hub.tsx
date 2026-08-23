@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Gamepad2, Pencil } from "lucide-react";
+import { Pencil, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHeader, PageFooter } from "@/components/site";
 import { ProfileSetup, TermsBanner } from "@/components/arcade/onboarding";
@@ -10,6 +10,7 @@ import {
   LocalLeaderboard,
 } from "@/components/ArcadeHub";
 import { useArcadeProfile } from "@/hooks/useArcadeProfile";
+import { GENDERS } from "@/lib/arcade/data";
 
 export function ArcadeHub() {
   const { profile, hydrated, updateProfile, resetProfile, level, title, progress, next } = useArcadeProfile();
@@ -17,6 +18,7 @@ export function ArcadeHub() {
 
   const showTerms = hydrated && !profile.termsAcceptedAt;
   const showSetup = hydrated && !showTerms && (!profile.onboarded || editing);
+  const genderLabel = GENDERS.find((g) => g.id === profile.gender)?.label ?? "";
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -38,40 +40,49 @@ export function ArcadeHub() {
           />
         ) : null}
 
-        {/* Hero Header */}
+        {/* Hero Header avec informations du Joueur */}
         <header className="flex flex-col gap-8 mb-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/15 text-primary neon-glow">
-                <Gamepad2 className="size-6" />
+
+            {/* Profil Joueur (Avatar, Pseudo, Sexe, Ville) */}
+            <div className="flex items-center gap-4">
+              <span className="flex size-14 items-center justify-center rounded-2xl border border-primary/40 bg-primary/10 text-3xl">
+                {profile.avatar}
               </span>
               <div>
-                <h1 className="font-display text-3xl leading-none tracking-tight sm:text-4xl">
-                  <span className="text-gradient-arcade">SPC Arcade</span>
-                </h1>
-                <p className="mt-1 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                  Staf Print Center • {hydrated ? profile.city : "Porto-Novo"}
+                <button
+                  type="button"
+                  onClick={() => setEditing(true)}
+                  className="flex items-center gap-2 font-display text-2xl sm:text-3xl hover:text-primary transition-colors cursor-pointer"
+                >
+                  <span className="text-gradient-arcade">{hydrated ? profile.nickname : "…"}</span>
+                  <Pencil className="size-4 text-primary" />
+                </button>
+                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  {hydrated ? profile.city : "Porto-Novo"}
+                  {genderLabel && profile.gender !== "non-precise" ? ` • ${genderLabel}` : ""}
                 </p>
               </div>
             </div>
+
+            {/* Actions Profil */}
             <div className="flex items-center gap-2">
               <Button variant="secondary" size="sm" onClick={() => setEditing(true)}>
-                <Pencil className="mr-1 size-4" /> Mon profil
+                <Pencil className="mr-1 size-4" /> Modifier profil
               </Button>
               <Button variant="ghost" size="sm" onClick={resetProfile}>
-                Réinitialiser
+                <RotateCcw className="mr-1 size-4" /> Réinitialiser
               </Button>
             </div>
           </div>
 
+          {/* Carte Progression & Statistiques */}
           <UserProfileCard
             profile={profile}
-            hydrated={hydrated}
             level={level}
             title={title}
             progress={progress}
             next={next}
-            onEditProfile={() => setEditing(true)}
           />
         </header>
 
