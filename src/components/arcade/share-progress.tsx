@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { WhatsAppIcon, FacebookIcon, LinkedinIcon, XIcon } from "@/components/site/icons";
 import { Button } from "@/components/ui/button";
+import { SITE } from "@/data/site";
 
 function shareUrl() {
   if (typeof window === "undefined") return "https://stafprint.com";
@@ -11,7 +12,7 @@ function shareUrl() {
 export function ShareProgress({ message, compact }: { message: string; compact?: boolean }) {
   const [copied, setCopied] = useState(false);
   const url = shareUrl();
-  const text = `${message} - SPC Arcade, le hub de jeux de STAF PRINT CENTER.`;
+  const text = `${message} - SPC Arcade, le hub de jeux de ${SITE.name}.`;
   const e = encodeURIComponent;
 
   const links = [
