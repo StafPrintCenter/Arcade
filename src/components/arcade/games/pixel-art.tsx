@@ -81,7 +81,7 @@ export function PixelArt({ setScore, setStatus, onFinish }: GameProps) {
     onFinish({
       score: accuracy,
       xp: Math.round(accuracy * bonus),
-      label: `Reproduction ${size}x${size} — ${accuracy}% fidèle`,
+      label: `Reproduction ${size}x${size} - ${accuracy}% fidèle`,
       victory: accuracy >= 85,
       patch: { pixelArt: { bestScore: accuracy, played: 1 } },
       badges: accuracy >= 90 && size >= 16 ? ["pixel-artiste"] : [],
@@ -96,7 +96,7 @@ export function PixelArt({ setScore, setStatus, onFinish }: GameProps) {
         <div className="mt-5 grid gap-3">
           {SIZES.map((s) => (
             <Button key={s} variant={s === 8 ? "default" : "secondary"} onClick={() => start(s)}>
-              {s} x {s} {s === 8 ? "— Facile" : s === 16 ? "— Moyen" : "— Expert"}
+              {s} x {s} {s === 8 ? "- Facile" : s === 16 ? "- Moyen" : "- Expert"}
             </Button>
           ))}
         </div>
@@ -109,7 +109,7 @@ export function PixelArt({ setScore, setStatus, onFinish }: GameProps) {
   return (
     <div className="grid gap-5 lg:grid-cols-[1fr_1fr_220px]">
       <Panel>
-        <p className="text-xs uppercase tracking-[0.16em] text-primary">Modèle — motif « {motif} »</p>
+        <p className="text-xs uppercase tracking-[0.16em] text-primary">Modèle - motif « {motif} »</p>
         <div className="mt-3 grid overflow-hidden rounded-lg border border-border bg-secondary/40" style={style}>
           {model.map((v, i) => (
             <span key={i} className="aspect-square" style={{ background: PALETTE[v] }} />
