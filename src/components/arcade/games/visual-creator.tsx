@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const BRIEFS = [
   { text: "Affiche promo : « -20% sur toutes les impressions grand format ».", head: "-20%", tail: "grand format" },
   { text: "Post réseaux : « Cartes de visite livrées en 24h ».", head: "24h", tail: "cartes de visite" },
-  { text: "Affiche événement : « Salon du Print — Porto-Novo, 12 mai ».", head: "12 mai", tail: "Salon du Print" },
+  { text: "Affiche événement : « Salon du Print - Porto-Novo, 12 mai ».", head: "12 mai", tail: "Salon du Print" },
   { text: "Flyer promo : « Roll-up 85x200 à prix atelier ».", head: "Roll-up", tail: "prix atelier" },
 ];
 
