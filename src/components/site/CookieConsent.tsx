@@ -84,7 +84,7 @@ export function CookieConsent() {
   if (!visible) return null;
 
   // Sécurisation contre undefined + fallback vers le domaine principal
-  const baseUrl = SITE?.url ?? "https://stafprint.com";
+  const baseUrl = SITE?.frontUrl;
   const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
   const mentionsLegalUrl = `${cleanBaseUrl}/legal/mentions#cookies`;
 
