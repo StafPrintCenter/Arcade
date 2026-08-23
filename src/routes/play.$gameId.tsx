@@ -8,9 +8,9 @@ import { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import { BADGES, GAMES } from "@/lib/arcade/data";
 import type { GameId, GameResult } from "@/lib/arcade/types";
 import type { GameProps } from "@/components/arcade/game-kit";
+import { ShareProgress } from "@/components/arcade/share-progress";
 import { PageFooter } from "@/components/site";
 import logo from "@/assets/logos.json";
-import { ShareProgress } from "@/components/arcade/share-progress";
 import {
   PrintingMaster,
   StudioManager,
