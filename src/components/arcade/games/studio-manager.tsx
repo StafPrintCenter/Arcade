@@ -56,7 +56,7 @@ export function StudioManager({ profile, setScore, setStatus, onFinish }: GamePr
   const [staff, setStaff] = useState<Record<Role, number>>({ graphiste: 1, dev: 1, operateur: 1 });
   const [jobs, setJobs] = useState<ActiveJob[]>([]);
   const [offers, setOffers] = useState<Contract[]>(() => drawOffers(1));
-  const [log, setLog] = useState<string[]>(["Jour 1 — L'agence ouvre ses portes."]);
+  const [log, setLog] = useState<string[]>(["Jour 1 - L'agence ouvre ses portes."]);
 
   const busy = (role: Role) => jobs.filter((j) => j.role === role).length;
   const pushLog = (msg: string) => setLog((l) => [msg, ...l].slice(0, 8));
@@ -68,7 +68,7 @@ export function StudioManager({ profile, setScore, setStatus, onFinish }: GamePr
     }
     setJobs((j) => [...j, { ...c, remaining: Math.max(1, Math.ceil(c.days / speed)) }]);
     setOffers((o) => o.filter((x) => x.id !== c.id));
-    pushLog(`Contrat accepté : ${c.client} — ${c.title}.`);
+    pushLog(`Contrat accepté : ${c.client} - ${c.title}.`);
   }
 
   function hire(role: Role) {
@@ -209,7 +209,7 @@ export function StudioManager({ profile, setScore, setStatus, onFinish }: GamePr
             {(Object.keys(ROLE_LABEL) as Role[]).map((r) => (
               <div key={r} className="flex items-center justify-between rounded-xl border border-border bg-secondary/40 px-3 py-2 text-sm">
                 <span>
-                  {ROLE_LABEL[r]} — {staff[r] - busy(r)}/{staff[r]} libre(s)
+                  {ROLE_LABEL[r]} - {staff[r] - busy(r)}/{staff[r]} libre(s)
                 </span>
                 <Button size="sm" variant="secondary" onClick={() => hire(r)}>
                   Recruter (250 000)
