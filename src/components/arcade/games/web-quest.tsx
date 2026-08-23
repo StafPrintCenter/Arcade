@@ -9,7 +9,7 @@ const TOTAL_SECONDS = 15 * 60;
 const CHAPTERS = [
   {
     id: "design",
-    title: "Étape 1 — Charte couleur",
+    title: "Étape 1 - Charte couleur",
     brief:
       "Le fichier de la campagne VIP a perdu sa couleur d'accent. Saisissez le code hexadécimal officiel de l'orange STAF PRINT CENTER.",
     hint: "Un orange vibrant, équivalent CMJN 0 / 62 / 95 / 2.",
@@ -18,7 +18,7 @@ const CHAPTERS = [
   },
   {
     id: "web",
-    title: "Étape 2 — Debug Flexbox",
+    title: "Étape 2 - Debug Flexbox",
     brief:
       "Le bouton « Commander » est collé à gauche du conteneur .toolbar { display:flex; }. Quelle correction CSS le recentre et l'aligne verticalement ?",
     hint: "Deux propriétés flex gouvernent les axes principal et transversal.",
@@ -33,7 +33,7 @@ const CHAPTERS = [
   },
   {
     id: "print",
-    title: "Étape 3 — Découpe vectorielle",
+    title: "Étape 3 - Découpe vectorielle",
     brief:
       "Le traceur doit lire le tracé de coupe. Quel réglage envoyer avant lancement de la découpe des stickers ?",
     hint: "Le tracé de coupe est un ton direct nommé par convention.",
@@ -74,7 +74,7 @@ export function WebQuest({ profile, setScore, setStatus, onFinish }: GameProps) 
         score: step * 200,
         xp: step * 40,
         victory: false,
-        label: `Temps écoulé — ${step}/3 énigmes`,
+        label: `Temps écoulé - ${step}/3 énigmes`,
       });
     }
   }, [left, done, step, setStatus, onFinish]);
