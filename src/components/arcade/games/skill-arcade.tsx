@@ -231,7 +231,7 @@ export function SkillArcade({ profile, setScore, setStatus, onFinish }: GameProp
                 </button>
               ))}
             </div>
-            <div className="mt-4 grid aspect-[3/1] grid-cols-3 grid-rows-3 gap-1 rounded-xl border border-border bg-background/40 p-1">
+            <div className="mt-4 grid aspect-3/1 grid-cols-3 grid-rows-3 gap-1 rounded-xl border border-border bg-background/40 p-1">
               {Array.from({ length: 9 }).map((_, i) => {
                 const label = Object.keys(placement).find((k) => placement[k] === i);
                 return (
