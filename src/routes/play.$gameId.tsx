@@ -9,6 +9,7 @@ import { BADGES, GAMES } from "@/lib/arcade/data";
 import type { GameId, GameResult } from "@/lib/arcade/types";
 import type { GameProps } from "@/components/arcade/game-kit";
 import { PageHeader, PageFooter } from "@/components/site";
+import logo from "@/assets/logos.json";
 import { ShareProgress } from "@/components/arcade/share-progress";
 import { PrintingMaster } from "@/components/arcade/games/printing-master";
 import { StudioManager } from "@/components/arcade/games/studio-manager";
@@ -24,7 +25,7 @@ import { BackEraser } from "@/components/arcade/games/back-eraser";
 export const Route = createFileRoute("/play/$gameId")({
   head: () => ({
     meta: [
-      { title: "Partie en cours - SPC Arcade" },
+      { title: "Partie en cours | SPC Arcade" },
       { name: "description", content: "Session de jeu SPC Arcade : score, chronomètre et XP en temps réel." },
       { property: "og:title", content: "Partie en cours - SPC Arcade" },
       { property: "og:description", content: "Jouez et gagnez de l'XP dans le hub de jeux STAF PRINT CENTER." },
@@ -94,9 +95,10 @@ function PlayPage() {
     <div className="min-h-screen">
       <div className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
-          <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/" })}>
-            <ArrowLeft className="mr-1 size-4" /> Quitter vers le Hub
-          </Button>
+          <Link to="/" className="transition-opacity hover:opacity-80">
+            <img src={logo.dc} alt="Logo SPC" className="h-10 md:h-12 w-auto" />
+          </Link>
+
           <p className="font-display text-lg">{game.name}</p>
           <div className="flex items-center gap-4 text-sm">
             <span className="flex items-center gap-1 text-primary">
