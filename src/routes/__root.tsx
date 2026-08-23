@@ -18,9 +18,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: ARCADE_DESC },
       { name: "author", content: SITE.name },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: SITE.name },
-      { property: "og:title", content: DOCS_TITLE },
-      { property: "og:description", content: DOCS_DESC },
+      { property: "og:site_name", content: `SPC Arcade - ${SITE.name}` },
+      { property: "og:title", content: ARCADE_TITLE },
+      { property: "og:description", content: ARCADE_DESC },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
