@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ArcadeIndexRouteImport } from './routes/arcade/arcade.index.tsx'
+import { Route as ArcadeIndexRouteImport } from './routes/arcade/index'
 import { Route as ArcadePlayGameIdRouteImport } from './routes/arcade.play.$gameId'
 
 const IndexRoute = IndexRouteImport.update({
