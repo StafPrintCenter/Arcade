@@ -5,7 +5,7 @@ import { WhatsAppIcon, FacebookIcon, LinkedinIcon, XIcon } from "@/components/si
 import { Button } from "@/components/ui/button";
 
 function shareUrl() {
-  if (typeof window === "undefined") return SITE?.arcadeUrl ?? "https://arcade.stafprint.com";
+  if (typeof window === "undefined") return SITE.arcadeUrl;
   return `${window.location.origin}`;
 }
 
