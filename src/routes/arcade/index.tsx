@@ -1,20 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArcadeHub } from "@/components/arcade/arcade-hub";
+import { SITE } from "@/data/site";
+
+const ARCADE_TITLE = `SPC Arcade - Jeux & gamification ${SITE.name}`;
+const ARCADE_DESC = `Jouez aux 4 jeux du studio STAF PRINT CENTER : prépresse, gestion d'agence créative, escape game print & web et micro-défis arcade.`;
 
 export const Route = createFileRoute("/arcade/")({
   head: () => ({
     meta: [
-      { title: "SPC Arcade - Hub de jeux STAF PRINT CENTER" },
-      {
-        name: "description",
-        content:
-          "Le hub de jeux et de gamification de STAF PRINT CENTER : prépresse, gestion d'agence, escape game et micro-défis créatifs.",
-      },
-      { property: "og:title", content: "SPC Arcade - Hub de jeux STAF PRINT CENTER" },
-      {
-        property: "og:description",
-        content: "Gagnez de l'XP, débloquez des badges et devenez Légende STAF dans les 4 jeux du studio.",
-      },
+      { title: ARCADE_TITLE },
+      { name: "description", content: ARCADE_DESC },
+      { property: "og:title", ARCADE_TITLE },
+      { property: "og:description", content: ARCADE_DESC },
     ],
   }),
   component: ArcadeHub,
