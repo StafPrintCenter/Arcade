@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Cookie } from "lucide-react";
 import { SITE } from "@/data/site";
 
-const STORAGE_KEY = "spc_cookie_consent_v1";
+const STORAGE_KEY = "spc_arcade_cookie_consent_v1";
 const GA_ID = "G-RJG7K6M9S0";
 
 type Consent = "accepted" | "declined";
@@ -11,13 +11,13 @@ declare global {
   interface Window {
     dataLayer: unknown[];
     gtag: (...args: unknown[]) => void;
-    __spcGaLoaded?: boolean;
+    __spcArcadeGaLoaded?: boolean;
   }
 }
 
 function loadGA() {
-  if (typeof window === "undefined" || window.__spcGaLoaded) return;
-  window.__spcGaLoaded = true;
+  if (typeof window === "undefined" || window.__spcArcadeGaLoaded) return;
+  window.__spcArcadeGaLoaded = true;
   const s = document.createElement("script");
   s.async = true;
   s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
@@ -83,7 +83,6 @@ export function CookieConsent() {
 
   if (!visible) return null;
 
-  // Nettoyage de l'URL pour éviter les doubles slashes lors de la concaténation
   const siteUrl = SITE.url.endsWith("/") ? SITE.url.slice(0, -1) : SITE.url;
   const mentionsLegalUrl = `${siteUrl}/legal/mentions#cookies`;
 
