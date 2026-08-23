@@ -23,9 +23,9 @@ import { BackEraser } from "@/components/arcade/games/back-eraser";
 export const Route = createFileRoute("/arcade/play/$gameId")({
   head: () => ({
     meta: [
-      { title: "Partie en cours — SPC Arcade" },
+      { title: "Partie en cours - SPC Arcade" },
       { name: "description", content: "Session de jeu SPC Arcade : score, chronomètre et XP en temps réel." },
-      { property: "og:title", content: "Partie en cours — SPC Arcade" },
+      { property: "og:title", content: "Partie en cours - SPC Arcade" },
       { property: "og:description", content: "Jouez et gagnez de l'XP dans le hub de jeux STAF PRINT CENTER." },
     ],
   }),
