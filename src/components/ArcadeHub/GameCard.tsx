@@ -1,19 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import {
-  Building2,
-  Eraser,
-  Gamepad2,
-  Grid3x3,
-  LayoutTemplate,
-  Palette,
-  Pencil,
-  Printer,
-  Puzzle,
-  Search,
-  Shapes,
-  Target,
-} from "lucide-react";
+import { Building2, Eraser, Gamepad2, Grid3x3, LayoutTemplate, Palette, Printer, Puzzle, Search, Shapes, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import type { Game, GameId } from "@/lib/arcade/types";
