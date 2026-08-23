@@ -25,7 +25,7 @@ interface Order {
 const ORDERS: Order[] = [
   {
     client: "Boulangerie Le Croissant",
-    job: "Flyers A5 recto/verso — 5 000 ex.",
+    job: "Flyers A5 recto/verso - 5 000 ex.",
     support: "Papier couché 135 g",
     specs: ["Résolution : 96 DPI", "Profil : sRGB", "Fond perdu : 0 mm", "Textes : vectorisés"],
     issues: ["dpi", "cmyk", "bleed"],
@@ -39,7 +39,7 @@ const ORDERS: Order[] = [
   },
   {
     client: "Clinique Sainte-Rita",
-    job: "Badges PVC personnalisés — 120 ex.",
+    job: "Badges PVC personnalisés - 120 ex.",
     support: "Vinyle adhésif",
     specs: ["Résolution : 300 DPI", "Profil : sRGB", "Fond perdu : 3 mm", "Textes : vectorisés"],
     issues: ["cmyk", "support"],
@@ -60,7 +60,7 @@ const ORDERS: Order[] = [
   },
   {
     client: "Université de Porto-Novo",
-    job: "Affiches A2 colloque — 300 ex.",
+    job: "Affiches A2 colloque - 300 ex.",
     support: "Papier couché 170 g",
     specs: ["Résolution : 220 DPI", "Profil : RVB", "Fond perdu : 3 mm", "Textes : calques vivants"],
     issues: ["dpi", "cmyk", "vector"],
@@ -182,9 +182,8 @@ export function PrintingMaster({ profile, setScore, setStatus, onFinish }: GameP
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            className={`mt-4 flex items-start gap-2 rounded-xl border p-3 text-sm ${
-              feedback.ok ? "border-success/50 bg-success/10 text-success" : "border-destructive/50 bg-destructive/10 text-destructive"
-            }`}
+            className={`mt-4 flex items-start gap-2 rounded-xl border p-3 text-sm ${feedback.ok ? "border-success/50 bg-success/10 text-success" : "border-destructive/50 bg-destructive/10 text-destructive"
+              }`}
           >
             {feedback.ok ? <CheckCircle2 className="mt-0.5 size-4" /> : <AlertTriangle className="mt-0.5 size-4" />}
             <span>{feedback.text}</span>
