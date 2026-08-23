@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { PageHeader, PageFooter } from "@/components/site";
-import { CookieConsent } from "@/components/site";
 
 interface ArcadeShellProps {
   children: ReactNode;
@@ -15,8 +14,6 @@ export function ArcadeShell({ children, headerContent }: ArcadeShellProps) {
         {children}
       </main>
       <PageFooter />
-
-      <CookieConsent />
     </div>
   );
 }
