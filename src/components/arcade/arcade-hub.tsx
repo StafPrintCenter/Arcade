@@ -22,6 +22,7 @@ import {
   Trophy,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageHeader, PageFooter } from "@/components/site";
 import { ProfileSetup, TermsBanner } from "@/components/arcade/onboarding";
 import { ShareProgress } from "@/components/arcade/share-progress";
 import { useArcadeProfile } from "@/hooks/useArcadeProfile";
