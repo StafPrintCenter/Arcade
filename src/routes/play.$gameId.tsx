@@ -71,7 +71,7 @@ function PlayPage() {
       <div className="flex min-h-screen flex-col items-center justify-center gap-4">
         <h1 className="font-display text-2xl">Jeu introuvable</h1>
         <Button asChild>
-          <Link to="/arcade">Retour au hub</Link>
+          <Link to="/">Retour au hub</Link>
         </Button>
       </div>
     );
@@ -94,7 +94,7 @@ function PlayPage() {
     <div className="min-h-screen">
       <div className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
-          <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/arcade" })}>
+          <Button variant="ghost" size="sm" onClick={() => navigate({ to: "/" })}>
             <ArrowLeft className="mr-1 size-4" /> Quitter vers le Hub
           </Button>
           <p className="font-display text-lg">{game.name}</p>
