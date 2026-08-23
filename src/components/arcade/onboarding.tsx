@@ -90,7 +90,7 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
               onChange={(e) => setAnalyticsEnabled(e.target.checked)}
               className="peer sr-only"
             />
-            <div className="peer h-5 w-9 rounded-full bg-border after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-focus:outline-none"></div>
+            <div className="peer h-5 w-9 rounded-full bg-border after:absolute after:left-0.5 after:top-0.5 after:h-4 after:w-4 after:rounded-full after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-focus:outline-none"></div>
           </label>
         </div>
       </div>
