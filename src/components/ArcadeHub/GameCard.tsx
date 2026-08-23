@@ -68,7 +68,7 @@ export function GameCard({ game, index, gamesData }: GameCardProps) {
       <div className="mt-5 flex items-center justify-between gap-3">
         <span className="text-xs text-muted-foreground">{getBestScoreLabel(game.id, gamesData)}</span>
         <Button asChild size="sm">
-          <Link to="/arcade/play/$gameId" params={{ gameId: game.id }}>
+          <Link to="/play/$gameId" params={{ gameId: game.id }}>
             Jouer
           </Link>
         </Button>
