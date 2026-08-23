@@ -8,10 +8,11 @@ export const SITE = {
   whatsapp: "+229 01 60 30 06 07",
   whatsappLink: "https://wa.me/2290160300607",
   email: "contact@stafprint.com",
-  url: import.meta.env.VITE_SITE_URL,
+  url: import.meta.env.c,
   shortUrl: import.meta.env.VITE_SHORTSITE_URL,
   frontUrl: import.meta.env.VITE_FRONTEND_URL,
   docsUrl: import.meta.env.VITE_DOCS_URL,
+  arcadeUrl: import.meta.env.VITE_ARCADE_URL,
   maps: "https://maps.app.goo.gl/4mbhWctm6LnTgYsAA",
   notice: "https://search.google.com/local/reviews?placeid=ChIJPb8nmaNbOxARzgX2S_y9o_M",
   socials: {
