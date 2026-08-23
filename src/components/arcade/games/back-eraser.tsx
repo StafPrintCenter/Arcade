@@ -104,7 +104,7 @@ export function BackEraser({ setScore, setStatus, onFinish }: GameProps) {
   return (
     <div className="grid gap-5 lg:grid-cols-[1fr_240px]">
       <Panel>
-        <p className="text-xs uppercase tracking-[0.16em] text-primary">Effacez le fond — sujet : {SUBJECT_LABELS[kind]}</p>
+        <p className="text-xs uppercase tracking-[0.16em] text-primary">Effacez le fond - sujet : {SUBJECT_LABELS[kind]}</p>
         <div
           className="mx-auto mt-4 grid max-w-md overflow-hidden rounded-xl border border-border"
           style={{ gridTemplateColumns: `repeat(${SIZE}, minmax(0,1fr))`, background: "repeating-conic-gradient(#1e293b 0% 25%, #0f172a 0% 50%) 50% / 16px 16px" }}
