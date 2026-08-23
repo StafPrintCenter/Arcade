@@ -52,7 +52,7 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
           <Share2 className="mt-0.5 size-4 shrink-0 text-primary" />
           <span>
             <strong>Le partage est volontaire.</strong> Vous pouvez partager votre progression sur Facebook,
-            LinkedIn, WhatsApp ou X quand vous le souhaitez — jamais automatiquement.
+            LinkedIn, WhatsApp ou X quand vous le souhaitez - jamais automatiquement.
           </span>
         </li>
       </ul>
