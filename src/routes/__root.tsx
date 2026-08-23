@@ -22,6 +22,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: ARCADE_TITLE },
       { property: "og:description", content: ARCADE_DESC },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: ARCADE_TITLE },
+      { name: "twitter:description", content: ARCADE_DESC },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
