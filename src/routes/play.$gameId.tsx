@@ -188,7 +188,6 @@ function PlayPage() {
       </AnimatePresence>
 
       <PageFooter />
-      <PageFooter />
     </div>
   );
 }
