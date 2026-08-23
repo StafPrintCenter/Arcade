@@ -112,7 +112,7 @@ export function ArcadeHub() {
             <span className="flex size-16 items-center justify-center rounded-2xl border border-primary/40 bg-primary/10 text-3xl">
               {profile.avatar}
             </span>
-            <div className="min-w-[220px] flex-1">
+            <div className="min-w-55 flex-1">
               <button
                 type="button"
                 className="flex items-center gap-2 font-display text-2xl hover:text-primary"
