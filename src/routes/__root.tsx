@@ -6,8 +6,8 @@ import appCss from "../styles.css?url";
 import { SITE } from "@/data/site";
 import { NotFoundComponent, ErrorComponent } from "@/components/errors";
 
-const DOCS_TITLE = `SPC Docs ${SITE.name}`;
-const DOCS_DESC = `Documentation officielle de l'écosystème ${SITE.name} : utilisateurs, développeurs et équipe support.`;
+const ARCADE_TITLE = `SPC Arcade - Jeux & gamification ${SITE.name}`;
+const ARCADE_DESC = `Hub de jeux interactifs et défis technico-créatifs pour tester vos compétences en prépresse, web design, retouche et gestion d'agence.`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
