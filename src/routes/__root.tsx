@@ -14,8 +14,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: DOCS_TITLE },
-      { name: "description", content: DOCS_DESC },
+      { title: ARCADE_TITLE },
+      { name: "description", content: ARCADE_DESC },
       { name: "author", content: SITE.name },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: SITE.name },
