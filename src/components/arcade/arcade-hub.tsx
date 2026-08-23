@@ -53,7 +53,7 @@ export function ArcadeHub() {
                 <button
                   type="button"
                   onClick={() => setEditing(true)}
-                  className="flex items-center gap-2 font-display text-2xl sm:text-3xl hover:text-primary transition-colors cursor-pointer"
+                  className="flex font-black items-center gap-2 font-display text-2xl sm:text-3xl hover:text-primary transition-colors cursor-pointer"
                 >
                   <span className="text-gradient-arcade">{hydrated ? profile.nickname : "…"}</span>
                   <Pencil className="size-4 text-primary" />
