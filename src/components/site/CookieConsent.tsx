@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { Cookie } from "lucide-react";
+import { SITE } from "@/data/site";
 
 const STORAGE_KEY = "spc_cookie_consent_v1";
 const GA_ID = "G-RJG7K6M9S0";
@@ -83,6 +83,10 @@ export function CookieConsent() {
 
   if (!visible) return null;
 
+  // Nettoyage de l'URL pour éviter les doubles slashes lors de la concaténation
+  const siteUrl = SITE.url.endsWith("/") ? SITE.url.slice(0, -1) : SITE.url;
+  const mentionsLegalUrl = `${siteUrl}/legal/mentions#cookies`;
+
   return (
     <div className="fixed inset-x-3 bottom-3 z-60 md:inset-x-auto md:right-6 md:bottom-6 md:max-w-md">
       <div className="rounded-2xl border border-border bg-background/95 p-5 shadow-2xl backdrop-blur-xl">
@@ -94,8 +98,15 @@ export function CookieConsent() {
             <p className="font-display font-semibold text-foreground">Nous utilisons des cookies</p>
             <p className="mt-1 text-foreground/70">
               Nous utilisons Google Analytics pour comprendre l'usage du site et l'améliorer. Vous pouvez accepter
-              ou refuser. Voir nos {" "}
-              <Link to="/legal/mentions" hash="cookies" className="underline hover:text-primary">mentions légales</Link>.
+              ou refuser. Voir nos{" "}
+              <a
+                href={mentionsLegalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-primary transition-colors"
+              >
+                mentions légales
+              </a>.
             </p>
           </div>
         </div>
