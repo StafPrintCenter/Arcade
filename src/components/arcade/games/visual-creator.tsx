@@ -124,7 +124,7 @@ export function VisualCreator({ setScore, setStatus, onFinish }: GameProps) {
             className={cn(
               "flex flex-col justify-between rounded-xl p-4",
               bg,
-              picks.format === "banniere" ? "aspect-[3/1]" : picks.format === "carre" ? "aspect-square" : "aspect-[3/4]",
+              picks.format === "banniere" ? "aspect-3/1" : picks.format === "carre" ? "aspect-square" : "aspect-3/4",
             )}
           >
             <p className={cn("font-display leading-none", picks.titre === "gros" ? "text-4xl" : picks.titre === "moyen" ? "text-2xl" : "text-base")}>
