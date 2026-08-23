@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { Cookie } from "lucide-react";
 import { SITE } from "@/data/site";
 
-const STORAGE_KEY = "spc_arcade_cookie_consent_v1";
+export const STORAGE_KEY = "spc_arcade_cookie_consent_v1";
 const GA_ID = "G-Z2WEXR6BRE";
 
-type Consent = "accepted" | "declined";
+export type Consent = "accepted" | "declined";
 
 declare global {
   interface Window {
@@ -15,7 +15,7 @@ declare global {
   }
 }
 
-function loadGA() {
+export function loadGA() {
   if (typeof window === "undefined" || window.__spcArcadeGaLoaded) return;
   window.__spcArcadeGaLoaded = true;
   const s = document.createElement("script");
@@ -33,6 +33,19 @@ function loadGA() {
     analytics_storage: "granted",
   });
   window.gtag("config", GA_ID, { anonymize_ip: true });
+}
+
+export function updateGaConsent(status: Consent) {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(STORAGE_KEY, status);
+  if (status === "accepted") {
+    loadGA();
+  } else if (window.gtag) {
+    window.gtag("consent", "update", {
+      ad_storage: "denied",
+      analytics_storage: "denied",
+    });
+  }
 }
 
 function setupConsentDefaults() {
@@ -65,26 +78,18 @@ export function CookieConsent() {
   }, []);
 
   const accept = () => {
-    localStorage.setItem(STORAGE_KEY, "accepted");
-    loadGA();
+    updateGaConsent("accepted");
     setVisible(false);
   };
 
   const decline = () => {
-    localStorage.setItem(STORAGE_KEY, "declined");
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("consent", "update", {
-        ad_storage: "denied",
-        analytics_storage: "denied",
-      });
-    }
+    updateGaConsent("declined");
     setVisible(false);
   };
 
   if (!visible) return null;
 
-  // Sécurisation contre undefined + fallback vers le domaine principal
-  const baseUrl = SITE?.frontUrl;
+  const baseUrl = SITE?.frontUrl ?? "";
   const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
   const mentionsLegalUrl = `${cleanBaseUrl}/legal/mentions#cookies`;
 
@@ -96,10 +101,9 @@ export function CookieConsent() {
             <Cookie size={18} />
           </div>
           <div className="text-sm text-foreground/85">
-            <p className="font-display font-semibold text-foreground">Nous utilisons des cookies</p>
+            <p className="font-display font-semibold text-foreground">Gestion des cookies</p>
             <p className="mt-1 text-foreground/70">
-              Nous utilisons Google Analytics pour comprendre l'usage du site et l'améliorer. Vous pouvez accepter
-              ou refuser. Voir nos{" "}
+              Nous utilisons Google Analytics pour comprendre l'usage du site et l'améliorer. Voir nos{" "}
               <a
                 href={mentionsLegalUrl}
                 target="_blank"
