@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PlayGameIdRouteImport } from './routes/play.$gameId'
+import { Route as PlayGameIdRouteImport } from './routes/play/$gameId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
