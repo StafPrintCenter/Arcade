@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
+import { SITE } from "@/data/site";
 import { WhatsAppIcon, FacebookIcon, LinkedinIcon, XIcon } from "@/components/site/icons";
 import { Button } from "@/components/ui/button";
 
