@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AVATARS, GENDERS } from "@/lib/arcade/data";
 import type { ArcadeProfile, Gender } from "@/lib/arcade/types";
+import { SITE } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 function Overlay({ children }: { children: React.ReactNode }) {
@@ -37,7 +38,7 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
           <Lock className="mt-0.5 size-4 shrink-0 text-primary" />
           <span>
             <strong>Aucune donnée n'est collectée.</strong> Votre pseudo, votre profil et vos scores restent
-            enregistrés uniquement dans votre navigateur (stockage local). Rien n'est envoyé à STAF PRINT CENTER
+            enregistrés uniquement dans votre navigateur (stockage local). Rien n'est envoyé à {SITE.name}
             ni à un tiers.
           </span>
         </li>
