@@ -83,8 +83,10 @@ export function CookieConsent() {
 
   if (!visible) return null;
 
-  const siteUrl = SITE.url.endsWith("/") ? SITE.url.slice(0, -1) : SITE.url;
-  const mentionsLegalUrl = `${siteUrl}/legal/mentions#cookies`;
+  // Sécurisation contre undefined + fallback vers le domaine principal
+  const baseUrl = SITE?.url ?? "https://stafprint.com";
+  const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
+  const mentionsLegalUrl = `${cleanBaseUrl}/legal/mentions#cookies`;
 
   return (
     <div className="fixed inset-x-3 bottom-3 z-60 md:inset-x-auto md:right-6 md:bottom-6 md:max-w-md">
