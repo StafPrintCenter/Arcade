@@ -179,7 +179,7 @@ export function SkillArcade({ profile, setScore, setStatus, onFinish }: GameProp
           <>
             <div className="flex items-center gap-2 text-primary">
               <TypeIcon className="size-4" />
-              <span className="text-xs uppercase tracking-[0.18em]">Speed Typography — {Math.max(0, timeLeft)}s</span>
+              <span className="text-xs uppercase tracking-[0.18em]">Speed Typography - {Math.max(0, timeLeft)}s</span>
             </div>
             <motion.p
               key={round}
@@ -212,7 +212,7 @@ export function SkillArcade({ profile, setScore, setStatus, onFinish }: GameProp
           <>
             <div className="flex items-center gap-2 text-primary">
               <LayoutGrid className="size-4" />
-              <span className="text-xs uppercase tracking-[0.18em]">Layout Fixer — règle des tiers</span>
+              <span className="text-xs uppercase tracking-[0.18em]">Layout Fixer - règle des tiers</span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground">
               Sélectionnez un élément puis placez-le dans la bonne zone de la bannière.
@@ -223,9 +223,8 @@ export function SkillArcade({ profile, setScore, setStatus, onFinish }: GameProp
                   key={el}
                   type="button"
                   onClick={() => setHolding(el)}
-                  className={`rounded-full border px-3 py-1 text-xs transition ${
-                    holding === el ? "border-primary bg-primary/20 text-primary" : "border-border bg-secondary/40"
-                  }`}
+                  className={`rounded-full border px-3 py-1 text-xs transition ${holding === el ? "border-primary bg-primary/20 text-primary" : "border-border bg-secondary/40"
+                    }`}
                 >
                   {el}
                   {placement[el] !== null ? " ✓" : ""}
