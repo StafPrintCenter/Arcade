@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import { BADGES, GAMES } from "@/lib/arcade/data";
 import type { GameId, GameResult } from "@/lib/arcade/types";
-import type { GameProps } from "@/components/arcade/game-kit";
-import { ShareProgress } from "@/components/arcade/share-progress";
+import { ShareProgress, type GameProps } from "@/components/arcade";
 import { PageFooter } from "@/components/site";
 import logo from "@/assets/logos.json";
 import {
