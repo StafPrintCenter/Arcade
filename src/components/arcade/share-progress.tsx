@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { WhatsAppIcon, FacebookIcon, LinkedinIcon, XIcon } from "@/components/site/icons";
 import { Button } from "@/components/ui/button";
-import { SITE } from "@/data/site";
 
 function shareUrl() {
   if (typeof window === "undefined") return "https://stafprint.com";
