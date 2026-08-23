@@ -214,14 +214,12 @@ export function ArcadeHub() {
               return (
                 <div
                   key={b.id}
-                  className={`flex items-start gap-3 rounded-2xl border p-4 ${
-                    unlocked ? "border-primary/50 bg-primary/10" : "border-border bg-secondary/30 opacity-70"
-                  }`}
+                  className={`flex items-start gap-3 rounded-2xl border p-4 ${unlocked ? "border-primary/50 bg-primary/10" : "border-border bg-secondary/30 opacity-70"
+                    }`}
                 >
                   <span
-                    className={`flex size-9 shrink-0 items-center justify-center rounded-xl ${
-                      unlocked ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground"
-                    }`}
+                    className={`flex size-9 shrink-0 items-center justify-center rounded-xl ${unlocked ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground"
+                      }`}
                   >
                     {unlocked ? <Trophy className="size-4" /> : <Lock className="size-4" />}
                   </span>
@@ -229,9 +227,8 @@ export function ArcadeHub() {
                     <p className="text-sm font-medium">{b.name}</p>
                     <p className="text-xs text-muted-foreground">{b.description}</p>
                     <p
-                      className={`mt-1 text-[10px] uppercase tracking-[0.14em] ${
-                        b.rarity === "legendaire" ? "text-rare" : b.rarity === "rare" ? "text-success" : "text-muted-foreground"
-                      }`}
+                      className={`mt-1 text-[10px] uppercase tracking-[0.14em] ${b.rarity === "legendaire" ? "text-rare" : b.rarity === "rare" ? "text-success" : "text-muted-foreground"
+                        }`}
                     >
                       {b.rarity}
                     </p>
@@ -272,7 +269,7 @@ export function ArcadeHub() {
             <div className="mt-2 space-y-1 text-sm">
               {LEVELS.map((l) => (
                 <p key={l.level} className={l.level === level ? "text-primary" : "text-muted-foreground"}>
-                  Niveau {l.level} — {l.title} <span className="text-xs">({l.xp} XP)</span>
+                  Niveau {l.level} - {l.title} <span className="text-xs">({l.xp} XP)</span>
                 </p>
               ))}
             </div>
