@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 function Overlay({ children }: { children: React.ReactNode }) {
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-background/85 p-4 backdrop-blur">
+    <div className="fixed inset-0 z-60 flex items-center justify-center bg-background/85 p-4 backdrop-blur">
       <motion.div
         initial={{ opacity: 0, y: 18, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
