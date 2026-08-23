@@ -18,7 +18,7 @@ export function ShareProgress({ message, compact }: { message: string; compact?:
     { name: "Facebook", icon: FacebookIcon, href: `https://www.facebook.com/sharer/sharer.php?u=${e(url)}&quote=${e(text)}` },
     { name: "LinkedIn", icon: LinkedinIcon, href: `https://www.linkedin.com/sharing/share-offsite/?url=${e(url)}` },
     { name: "WhatsApp", icon: WhatsAppIcon, href: `https://wa.me/?text=${e(`${text} ${url}`)}` },
-    { name: "XIcon", icon: XIcon, href: `https://twitter.com/intent/tweet?text=${e(text)}&url=${e(url)}` },
+    { name: "X (Twitter)", icon: XIcon, href: `https://twitter.com/intent/tweet?text=${e(text)}&url=${e(url)}` },
   ];
 
   async function copy() {
