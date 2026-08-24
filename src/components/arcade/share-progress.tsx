@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
-import { SITE } from "@/data/site";
+import { SITE, SITE_LINK } from "@/data/site";
 import { WhatsAppIcon, FacebookIcon, LinkedinIcon, XIcon } from "@/components/site/icons";
 import { Button } from "@/components/ui/button";
 
 function shareUrl() {
-  if (typeof window === "undefined") return SITE.arcadeUrl;
+  if (typeof window === "undefined") return SITE_LINK.arcadeUrl;
   return `${window.location.origin}`;
 }
 
