@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AVATARS, GENDERS } from "@/lib/arcade/data";
 import type { ArcadeProfile, Gender } from "@/lib/arcade/types";
-import { SITE } from "@/data/site";
+import { SITE, SITE_LINK } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { updateGaConsent } from "@/components/site/CookieConsent";
 
@@ -31,7 +31,7 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
     onAccept();
   };
 
-  const baseUrl = SITE?.frontUrl ?? "";
+  const baseUrl = SITE_LINK.landingUrl;
   const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
   const mentionsLegalUrl = `${cleanBaseUrl}/legal/mentions#cookies`;
 
@@ -64,7 +64,7 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
           <Share2 className="mt-0.5 size-4 shrink-0 text-primary" />
           <span>
             <strong>Le partage est volontaire.</strong> Vous pouvez partager votre progression quand vous le
-            souhaitez — jamais automatiquement.
+            souhaitez ; jamais automatiquement.
           </span>
         </li>
       </ul>
