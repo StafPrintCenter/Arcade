@@ -1,4 +1,4 @@
-import { SITE } from "@/data/site";
+import { SITE, SITE_LINK } from "@/data/site";
 
 export function PageFooter() {
   return (
@@ -6,7 +6,7 @@ export function PageFooter() {
       <p className="mx-auto max-w-6xl px-4 text-xs text-muted-foreground sm:px-6">
         © {new Date().getFullYear()} SPC Arcade · Hub propulsé par{" "}
         <a
-          href={SITE.url}
+          href={SITE_LINK.landingUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="font-medium underline underline-offset-4 hover:text-foreground transition-colors cursor-pointer"
