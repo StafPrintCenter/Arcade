@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { EyeOff, Lock, ShieldCheck, Share2, BarChart2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { AVATARS, GENDERS } from "@/lib/arcade/data";
+import { AVATAR_BASES, GENDERS, SKIN_TONES, withSkinTone } from "@/lib/arcade/data";
 import type { ArcadeProfile, Gender } from "@/lib/arcade/types";
 import { SITE, SITE_LINK } from "@/data/site";
 import { cn } from "@/lib/utils";
