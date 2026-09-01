@@ -65,6 +65,7 @@ export function ArcadeHub() {
 
           {/* Actions Profil */}
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <Button variant="secondary" size="sm" onClick={() => setEditing(true)}>
               <Pencil className="mr-1 size-4" /> Modifier profil
             </Button>
