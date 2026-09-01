@@ -124,10 +124,17 @@ export function ProfileSetup({
   onSave: (patch: Partial<ArcadeProfile>) => void;
   onCancel?: () => void;
 }) {
+  const [step, setStep] = useState(0);
   const [nickname, setNickname] = useState(profile.onboarded ? profile.nickname : "");
   const [gender, setGender] = useState<Gender>(profile.gender);
-  const [avatar, setAvatar] = useState(profile.avatar);
+  const [skinTone, setSkinTone] = useState(profile.skinTone || "moyen");
+  const [base, setBase] = useState(AVATAR_BASES[profile.gender]?.[0] ?? "🧑");
   const [city, setCity] = useState(profile.city);
+
+  const modifier = SKIN_TONES.find((t) => t.id === skinTone)?.modifier ?? "";
+  const bases = AVATAR_BASES[gender] ?? AVATAR_BASES["non-precise"];
+  const avatar = withSkinTone(base, modifier);
+  const steps = ["Identité", "Teinte de peau", "Avatar"];
 
   return (
     <Overlay>
@@ -138,79 +145,141 @@ export function ProfileSetup({
         Ces informations restent sur votre appareil et servent uniquement à personnaliser le hub.
       </p>
 
-      <div className="mt-5 space-y-5">
-        <div>
-          <label className="mb-2 block text-xs uppercase tracking-[0.14em] text-muted-foreground">Pseudo</label>
-          <Input
-            value={nickname}
-            maxLength={20}
-            onChange={(e) => setNickname(e.target.value)}
-            placeholder="Ex : StafMaster229"
-          />
-        </div>
-
-        <div>
-          <p className="mb-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">Avatar</p>
-          <div className="flex flex-wrap gap-2">
-            {AVATARS.map((a) => (
-              <button
-                key={a}
-                type="button"
-                onClick={() => setAvatar(a)}
-                className={cn(
-                  "flex size-11 items-center justify-center rounded-xl border border-border bg-secondary/40 text-xl cursor-pointer",
-                  avatar === a && "border-primary bg-primary/15 neon-glow",
-                )}
-              >
-                {a}
-              </button>
-            ))}
+      <div className="mt-4 flex gap-2">
+        {steps.map((s, i) => (
+          <div key={s} className="flex-1">
+            <div className={cn("h-1.5 rounded-full bg-secondary", i <= step && "bg-primary")} />
+            <p className={cn("mt-1 text-[11px] text-muted-foreground", i === step && "text-primary")}>{s}</p>
           </div>
-        </div>
-
-        <div>
-          <p className="mb-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">Sexe</p>
-          <div className="flex flex-wrap gap-2">
-            {GENDERS.map((g) => (
-              <button
-                key={g.id}
-                type="button"
-                onClick={() => setGender(g.id)}
-                className={cn(
-                  "rounded-xl border border-border bg-secondary/40 px-3 py-2 text-sm cursor-pointer",
-                  gender === g.id && "border-primary bg-primary/15",
-                )}
-              >
-                {g.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <label className="mb-2 block text-xs uppercase tracking-[0.14em] text-muted-foreground">Ville</label>
-          <Input value={city} maxLength={30} onChange={(e) => setCity(e.target.value)} placeholder="Porto-Novo" />
-        </div>
+        ))}
       </div>
 
+      {step === 0 ? (
+        <div className="mt-5 space-y-5">
+          <div>
+            <label className="mb-2 block text-xs uppercase tracking-[0.14em] text-muted-foreground">Pseudo</label>
+            <Input
+              value={nickname}
+              maxLength={20}
+              onChange={(e) => setNickname(e.target.value)}
+              placeholder="Ex : StafMaster229"
+            />
+          </div>
+
+          <div>
+            <p className="mb-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">Sexe</p>
+            <div className="grid grid-cols-2 gap-2">
+              {GENDERS.map((g) => (
+                <button
+                  key={g.id}
+                  type="button"
+                  onClick={() => {
+                    setGender(g.id);
+                    setBase((AVATAR_BASES[g.id] ?? AVATAR_BASES["non-precise"])[0] ?? "🧑");
+                  }}
+                  className={cn(
+                    "flex items-center gap-2 rounded-xl border border-border bg-secondary/40 px-3 py-2 text-sm",
+                    gender === g.id && "border-primary bg-primary/15",
+                  )}
+                >
+                  <span className="text-xl">{g.emoji}</span>
+                  {g.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <label className="mb-2 block text-xs uppercase tracking-[0.14em] text-muted-foreground">Ville</label>
+            <Input value={city} maxLength={30} onChange={(e) => setCity(e.target.value)} placeholder="Porto-Novo" />
+          </div>
+        </div>
+      ) : null}
+
+      {step === 1 ? (
+        <div className="mt-5">
+          <p className="mb-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">Teinte de peau</p>
+          <div className="flex flex-wrap gap-2">
+            {SKIN_TONES.map((t) => (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => setSkinTone(t.id)}
+                className={cn(
+                  "flex flex-col items-center gap-1 rounded-xl border border-border bg-secondary/40 px-3 py-2 text-xs",
+                  skinTone === t.id && "border-primary bg-primary/15 neon-glow",
+                )}
+              >
+                <span className="text-2xl">{withSkinTone(bases[0] ?? "🧑", t.modifier)}</span>
+                {t.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {step === 2 ? (
+        <div className="mt-5">
+          <p className="mb-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">Avatar</p>
+          <div className="flex flex-wrap gap-2">
+            {bases.map((b) => (
+              <button
+                key={b}
+                type="button"
+                onClick={() => setBase(b)}
+                className={cn(
+                  "flex size-12 items-center justify-center rounded-xl border border-border bg-secondary/40 text-2xl",
+                  base === b && "border-primary bg-primary/15 neon-glow",
+                )}
+              >
+                {withSkinTone(b, modifier)}
+              </button>
+            ))}
+          </div>
+          <p className="mt-4 flex items-center gap-3 rounded-xl border border-border bg-secondary/40 p-3 text-sm">
+            <span className="text-3xl">{avatar}</span>
+            <span className="text-muted-foreground">
+              Aperçu : {nickname.trim() || "Joueur STAF"} — {city.trim() || "Porto-Novo"}
+            </span>
+          </p>
+        </div>
+      ) : null}
+
       <div className="mt-6 flex gap-2">
-        <Button
-          className="flex-1 cursor-pointer"
-          disabled={nickname.trim().length < 2}
-          onClick={() =>
-            onSave({
-              nickname: nickname.trim(),
-              gender,
-              avatar,
-              city: city.trim() || "Porto-Novo",
-              onboarded: true,
-            })
-          }
-        >
-          {profile.onboarded ? "Enregistrer" : "Entrer dans l'Arcade"}
-        </Button>
+        {step > 0 ? (
+          <Button variant="secondary" className="flex-1" onClick={() => setStep((s) => s - 1)}>
+            Retour
+          </Button>
+        ) : null}
+
+        {step < 2 ? (
+          <Button
+            className="flex-1"
+            disabled={step === 0 && nickname.trim().length < 2}
+            onClick={() => setStep((s) => s + 1)}
+          >
+            Continuer
+          </Button>
+        ) : (
+          <Button
+            className="flex-1"
+            onClick={() =>
+              onSave({
+                nickname: nickname.trim() || "Joueur STAF",
+                gender,
+                skinTone,
+                avatar,
+                city: city.trim() || "Porto-Novo",
+                onboarded: true,
+              })
+            }
+          >
+            {profile.onboarded ? "Enregistrer" : "Entrer dans l'Arcade"}
+          </Button>
+        )}
+
         {onCancel ? (
-          <Button variant="secondary" className="flex-1 cursor-pointer" onClick={onCancel}>
+          <Button variant="ghost" onClick={onCancel}>
             Annuler
           </Button>
         ) : null}
