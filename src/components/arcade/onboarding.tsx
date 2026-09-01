@@ -96,7 +96,8 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
       </div>
 
       <p className="mt-4 text-xs text-muted-foreground">
-        Vider le cache du navigateur efface votre progression. En savoir plus dans nos{" "}
+        Les jeux sont pédagogiques et
+        fictifs ; les briefs clients sont imaginaires. Vider le cache du navigateur efface votre progression. En savoir plus dans nos{" "}
         <a
           href={mentionsLegalUrl}
           target="_blank"
