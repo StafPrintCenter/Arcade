@@ -198,30 +198,23 @@ export function ProfileSetup({
             </div>
           </div>
           <div>
-            <label className="mb-2 block text-xs uppercase tracking-[0.14em] text-muted-foreground">Ville</label>
-            <Input value={city} maxLength={30} onChange={(e) => setCity(e.target.value)} placeholder="Porto-Novo" />
-          </div>
-        </div>
-      ) : null}
-
-      {step === 1 ? (
-        <div className="mt-5">
-          <p className="mb-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">Teinte de peau</p>
-          <div className="flex flex-wrap gap-2">
-            {SKIN_TONES.map((t) => (
-              <button
-                key={t.id}
-                type="button"
-                onClick={() => setSkinTone(t.id)}
-                className={cn(
-                  "flex flex-col items-center gap-1 rounded-xl border border-border bg-secondary/40 px-3 py-2 text-xs",
-                  skinTone === t.id && "border-primary bg-primary/15 neon-glow",
-                )}
-              >
-                <span className="text-2xl">{withSkinTone(bases[0] ?? "🧑", t.modifier)}</span>
-                {t.label}
-              </button>
-            ))}
+            <p className="mb-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">Teinte de peau</p>
+            <div className="flex flex-wrap gap-2">
+              {SKIN_TONES.map((t) => (
+                <button
+                  key={t.id}
+                  type="button"
+                  onClick={() => setSkinTone(t.id)}
+                  className={cn(
+                    "flex flex-col items-center gap-1 rounded-xl border border-border bg-secondary/40 px-3 py-2 text-xs",
+                    skinTone === t.id && "border-primary bg-primary/15 neon-glow",
+                  )}
+                >
+                  <span className="text-2xl">{withSkinTone(bases[0] ?? "🧑", t.modifier)}</span>
+                  {t.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       ) : null}
