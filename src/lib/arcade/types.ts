@@ -10,7 +10,7 @@ export type GameId =
   | "logoSteps"
   | "backEraser";
 
-export type Gender = "homme" | "femme" | "autre" | "non-precise";
+export type Gender = "homme" | "femme";
 
 export interface SimpleGameData {
   bestScore: number;
