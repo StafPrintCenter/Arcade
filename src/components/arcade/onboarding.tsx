@@ -63,8 +63,7 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
         <li className="flex gap-3 rounded-xl border border-border bg-secondary/40 p-3">
           <Share2 className="mt-0.5 size-4 shrink-0 text-primary" />
           <span>
-            <strong>Le partage est volontaire.</strong> Vous pouvez partager votre progression quand vous le
-            souhaitez ; jamais automatiquement.
+            <strong>Le partage est volontaire.</strong> Vous pouvez partager votre progression quand vous le souhaitez ; jamais automatiquement.
           </span>
         </li>
       </ul>
