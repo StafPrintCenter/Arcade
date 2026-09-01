@@ -270,7 +270,7 @@ export function ProfileSetup({
                 gender,
                 skinTone,
                 avatar,
-                city: city.trim() || "Porto-Novo",
+                city: city.trim() || "Ma ville",
                 onboarded: true,
               })
             }
