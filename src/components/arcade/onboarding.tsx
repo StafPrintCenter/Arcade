@@ -184,7 +184,7 @@ export function ProfileSetup({
                   type="button"
                   onClick={() => {
                     setGender(g.id);
-                    setBase((AVATAR_BASES[g.id] ?? AVATAR_BASES["non-precise"])[0] ?? "🧑");
+                    setBase((AVATAR_BASES[g.id] ?? AVATAR_BASES.homme)[0] ?? "🧑");
                   }}
                   className={cn(
                     "flex items-center gap-2 rounded-xl border border-border bg-secondary/40 px-3 py-2 text-sm cursor-pointer",
