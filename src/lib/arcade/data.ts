@@ -149,7 +149,7 @@ export const GAMES: GameDef[] = [
 ];
 
 export const GENDERS: Array<{ id: import("./types").Gender; label: string; emoji: string }> = [
-  { id: "homme", label: "Homme", emoji: "👨" },
+  { id: "homme", label: "Homme", emoji: "♂️" },
   { id: "femme", label: "Femme", emoji: "👩" },
 ];
 
