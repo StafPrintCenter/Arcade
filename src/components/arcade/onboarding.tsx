@@ -134,7 +134,7 @@ export function ProfileSetup({
   const modifier = SKIN_TONES.find((t) => t.id === skinTone)?.modifier ?? "";
   const bases = AVATAR_BASES[gender] ?? AVATAR_BASES.homme;
   const avatar = withSkinTone(base, modifier);
-  const steps = ["Identité", "Teinte de peau", "Avatar"];
+  const steps = ["Pseudo & Ville", "Sexe & Teint", "Avatar"];
 
   return (
     <Overlay>
