@@ -166,8 +166,6 @@ export const SKIN_TONES: Array<{ id: string; label: string; modifier: string }> 
 export const AVATAR_BASES: Record<import("./types").Gender, string[]> = {
   homme: ["👨", "👦", "🧔", "👴", "👨‍🦰", "👨‍🦱", "👨‍🦳", "👨‍🎨", "👨‍💻", "👨‍🏭"],
   femme: ["👩", "👧", "👵", "👩‍🦰", "👩‍🦱", "👩‍🦳", "👩‍🎨", "👩‍💻", "👩‍🏭", "💁‍♀️"],
-  autre: ["🧑", "🧒", "🧓", "🧑‍🦰", "🧑‍🦱", "🧑‍🦳", "🧑‍🎨", "🧑‍💻", "🧑‍🏭", "🙋"],
-  "non-precise": ["🧑", "🧒", "🧓", "🧑‍🦰", "🧑‍🦱", "🧑‍🦳", "🧑‍🎨", "🧑‍💻", "🧑‍🏭", "🙋"],
 };
 
 /** Applique un modificateur de teinte juste après le premier point de code. */
