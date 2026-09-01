@@ -128,7 +128,7 @@ export function ProfileSetup({
   const [nickname, setNickname] = useState(profile.onboarded ? profile.nickname : "");
   const [gender, setGender] = useState<Gender>(profile.gender);
   const [skinTone, setSkinTone] = useState(profile.skinTone || "moyen");
-  const [base, setBase] = useState(AVATAR_BASES[profile.gender]?.[0] ?? "🧑");
+  const [base, setBase] = useState(AVATAR_BASES[profile.gender]?.[0] ?? AVATAR_BASES.homme[0]!);
   const [city, setCity] = useState(profile.city);
 
   const modifier = SKIN_TONES.find((t) => t.id === skinTone)?.modifier ?? "";
