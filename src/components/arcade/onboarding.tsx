@@ -187,7 +187,7 @@ export function ProfileSetup({
                     setBase((AVATAR_BASES[g.id] ?? AVATAR_BASES["non-precise"])[0] ?? "🧑");
                   }}
                   className={cn(
-                    "flex items-center gap-2 rounded-xl border border-border bg-secondary/40 px-3 py-2 text-sm",
+                    "flex items-center gap-2 rounded-xl border border-border bg-secondary/40 px-3 py-2 text-sm cursor-pointer",
                     gender === g.id && "border-primary bg-primary/15",
                   )}
                 >
