@@ -240,7 +240,7 @@ export function ProfileSetup({
           <p className="mt-4 flex items-center gap-3 rounded-xl border border-border bg-secondary/40 p-3 text-sm">
             <span className="text-3xl">{avatar}</span>
             <span className="text-muted-foreground">
-              Aperçu : {nickname.trim() || "Joueur STAF"} — {city.trim() || "Porto-Novo"}
+              {nickname.trim() || "Joueur STAF"} de {city.trim() || "Ma ville"}
             </span>
           </p>
         </div>
