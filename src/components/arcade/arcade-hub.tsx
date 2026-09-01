@@ -57,8 +57,8 @@ export function ArcadeHub() {
                 <Pencil className="size-4 text-primary" />
               </button>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                {hydrated ? profile.city : "Porto-Novo"}
-                {genderLabel && profile.gender !== "non-precise" ? ` • ${genderLabel}` : ""}
+                {hydrated ? profile.city : "Ma ville"}
+                {genderLabel && profile.gender !== "homme" ? ` • ${genderLabel}` : ""}
               </p>
             </div>
           </div>
