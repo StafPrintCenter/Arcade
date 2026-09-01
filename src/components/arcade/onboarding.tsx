@@ -132,7 +132,7 @@ export function ProfileSetup({
   const [city, setCity] = useState(profile.city);
 
   const modifier = SKIN_TONES.find((t) => t.id === skinTone)?.modifier ?? "";
-  const bases = AVATAR_BASES[gender] ?? AVATAR_BASES["non-precise"];
+  const bases = AVATAR_BASES[gender] ?? AVATAR_BASES.homme;
   const avatar = withSkinTone(base, modifier);
   const steps = ["Identité", "Teinte de peau", "Avatar"];
 
