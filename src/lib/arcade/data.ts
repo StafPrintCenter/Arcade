@@ -181,10 +181,10 @@ export const AVATARS = AVATAR_BASES["non-precise"];
 
 export const DEFAULT_PROFILE: ArcadeProfile = {
   nickname: "Joueur STAF",
-  gender: "non-precise",
+  gender: "homme",
   avatar: "🧑",
   skinTone: "moyen",
-  city: "Porto-Novo",
+  city: "Ma Ville",
   onboarded: false,
   termsAcceptedAt: null,
   totalXP: 0,
