@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 export type Theme = "light" | "dark";
-const THEME_KEY = "spc_arcade_theme";
+const THEME_KEY = "spc-theme";
 
 function apply(theme: Theme) {
   const root = document.documentElement;
