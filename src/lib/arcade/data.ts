@@ -175,7 +175,7 @@ export function withSkinTone(base: string, modifier: string) {
   return points[0]! + modifier + points.slice(1).join("");
 }
 
-export const AVATARS = AVATAR_BASES["non-precise"];
+export const AVATARS = AVATAR_BASES["homme"];
 
 export const DEFAULT_PROFILE: ArcadeProfile = {
   nickname: "Joueur STAF",
