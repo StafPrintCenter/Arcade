@@ -30,6 +30,7 @@ export interface ArcadeProfile {
   nickname: string;
   gender: Gender;
   avatar: string;
+  skinTone: string;
   city: string;
   onboarded: boolean;
   termsAcceptedAt: string | null;
