@@ -180,7 +180,7 @@ export const AVATARS = AVATAR_BASES["homme"];
 export const DEFAULT_PROFILE: ArcadeProfile = {
   nickname: "Joueur STAF",
   gender: "homme",
-  avatar: "😎",
+  avatar: "⚥",
   skinTone: "moyen",
   city: "Ma Ville",
   onboarded: false,
