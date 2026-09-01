@@ -167,6 +167,15 @@ export function ProfileSetup({
           </div>
 
           <div>
+            <label className="mb-2 block text-xs uppercase tracking-[0.14em] text-muted-foreground">Ville</label>
+            <Input value={city} maxLength={30} onChange={(e) => setCity(e.target.value)} placeholder="Porto-Novo" />
+          </div>
+        </div>
+      ) : null}
+
+      {step === 1 ? (
+        <div className="mt-5 space-y-5">
+          <div>
             <p className="mb-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">Sexe</p>
             <div className="grid grid-cols-2 gap-2">
               {GENDERS.map((g) => (
