@@ -162,7 +162,7 @@ export function ProfileSetup({
               value={nickname}
               maxLength={20}
               onChange={(e) => setNickname(e.target.value)}
-              placeholder="Ex : StafMaster229"
+              placeholder="Votre nom de joueur"
             />
           </div>
 
