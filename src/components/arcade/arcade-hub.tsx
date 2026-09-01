@@ -58,7 +58,7 @@ export function ArcadeHub() {
               </button>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
                 {hydrated ? profile.city : "Ma ville"}
-                {genderLabel && profile.gender !== "homme" ? ` • ${genderLabel}` : ""}
+                {genderLabel ? ` • ${genderLabel}` : ""}
               </p>
             </div>
           </div>
