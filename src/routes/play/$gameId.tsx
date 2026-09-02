@@ -1,4 +1,3 @@
-// src/routes/play/$gameId.tsx
 import { useEffect, useState, type ComponentType } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
@@ -113,7 +112,7 @@ function PlayPage() {
           <Gauge className="size-3.5" />
           <span>{score} <span className="hidden xs:inline">pts</span></span>
         </div>
-        <span className="hidden md:inline-block text-muted-foreground text-xs max-w-[120px] truncate">
+        <span className="hidden md:inline-block text-muted-foreground text-xs max-w-30 truncate">
           {status}
         </span>
       </div>
