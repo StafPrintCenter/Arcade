@@ -10,7 +10,6 @@ import {
   LocalLeaderboard,
 } from "@/components/ArcadeHub";
 import { useArcadeProfile } from "@/hooks/useArcadeProfile";
-import { ThemeToggle } from "@/components/arcade/theme-toggle";
 import { GENDERS } from "@/lib/arcade/data";
 
 export function ArcadeHub() {
