@@ -10,10 +10,13 @@ export function ThemeToggle() {
       variant="secondary"
       size="sm"
       onClick={toggleTheme}
-      aria-label={theme === "dark" ? "Passer au thème clair" : "Passer au thème sombre"}
+      aria-label={isDark ? "Passer au thème clair" : "Passer au thème sombre"}
+      className="px-2.5 sm:px-3"
     >
-      {mounted && theme === "dark" ? <Sun className="mr-1 size-4" /> : <Moon className="mr-1 size-4" />}
-      {mounted && theme === "dark" ? "Clair" : "Sombre"}
+      {isDark ? <Sun className="size-4 sm:mr-1.5" /> : <Moon className="size-4 sm:mr-1.5" />}
+      <span className="hidden sm:inline">
+        {isDark ? "Clair" : "Sombre"}
+      </span>
     </Button>
   );
 }
