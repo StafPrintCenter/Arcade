@@ -1,8 +1,9 @@
+// src/routes/play/$gameId.tsx
 import { useEffect, useState, type ComponentType } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import confetti from "canvas-confetti";
-import { Gauge, Trophy } from "lucide-react";
+import { ArrowLeft, Gauge, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import { BADGES, GAMES } from "@/lib/arcade/data";
@@ -93,21 +94,26 @@ function PlayPage() {
   }
 
   const customHeaderContent = (
-    <div className="flex min-w-0 items-center justify-between gap-3">
-      {/* Nom du jeu */}
-      <p className="min-w-0 truncate font-display text-base sm:text-lg">
-        {game.name}
-      </p>
-
-      {/* Informations de la partie */}
-      <div className="flex shrink-0 items-center gap-3 text-sm">
-        <span className="flex items-center gap-1 font-medium text-primary">
-          <Gauge className="size-4" />
-          {score}
-          <span className="hidden xs:inline">pts</span>
+    <div className="flex flex-1 items-center justify-between gap-2 min-w-0 ml-2 sm:ml-6">
+      {/* Bouton de retour + Titre du jeu */}
+      <div className="flex items-center gap-2 min-w-0">
+        <Button variant="ghost" size="icon" className="size-8 shrink-0" asChild>
+          <Link to="/" aria-label="Retour au hub">
+            <ArrowLeft className="size-4" />
+          </Link>
+        </Button>
+        <span className="font-display text-sm sm:text-base font-semibold truncate">
+          {game.name}
         </span>
+      </div>
 
-        <span className="hidden md:inline text-muted-foreground">
+      {/* Score & Statut */}
+      <div className="flex items-center gap-2 shrink-0 text-xs sm:text-sm">
+        <div className="flex items-center gap-1 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-primary font-semibold">
+          <Gauge className="size-3.5" />
+          <span>{score} <span className="hidden xs:inline">pts</span></span>
+        </div>
+        <span className="hidden md:inline-block text-muted-foreground text-xs max-w-[120px] truncate">
           {status}
         </span>
       </div>
