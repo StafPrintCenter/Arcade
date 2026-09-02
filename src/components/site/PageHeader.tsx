@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logos.json";
+import { ThemeToggle } from "@/components/arcade/theme-toggle";
 
 interface PageHeaderProps {
   children?: React.ReactNode;
@@ -12,6 +13,8 @@ export function PageHeader({ children }: PageHeaderProps) {
         <Link to="/" className="transition-opacity hover:opacity-80">
           <img src={logo.dc} alt="Logo SPC" className="h-10 md:h-12 w-auto" />
         </Link>
+
+        <ThemeToggle />
         {children}
       </div>
     </header>
