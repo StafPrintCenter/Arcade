@@ -93,13 +93,23 @@ function PlayPage() {
   }
 
   const customHeaderContent = (
-    <div className="flex items-center justify-between gap-4 flex-1 ml-4 sm:ml-8">
-      <p className="font-display text-lg truncate">{game.name}</p>
-      <div className="flex items-center gap-4 text-sm shrink-0">
-        <span className="flex items-center gap-1 text-primary font-medium">
-          <Gauge className="size-4" /> {score} pts
+    <div className="flex min-w-0 items-center justify-between gap-3">
+      {/* Nom du jeu */}
+      <p className="min-w-0 truncate font-display text-base sm:text-lg">
+        {game.name}
+      </p>
+
+      {/* Informations de la partie */}
+      <div className="flex shrink-0 items-center gap-3 text-sm">
+        <span className="flex items-center gap-1 font-medium text-primary">
+          <Gauge className="size-4" />
+          {score}
+          <span className="hidden xs:inline">pts</span>
         </span>
-        <span className="hidden sm:inline text-muted-foreground">{status}</span>
+
+        <span className="hidden md:inline text-muted-foreground">
+          {status}
+        </span>
       </div>
     </div>
   );
