@@ -4,6 +4,7 @@ import { useTheme } from "@/hooks/useTheme";
 
 export function ThemeToggle() {
   const { theme, toggleTheme, mounted } = useTheme();
+  const isDark = mounted && theme === "dark";
 
   return (
     <Button
