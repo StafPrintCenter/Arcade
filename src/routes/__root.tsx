@@ -37,6 +37,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: `${logo.meta}` },
       { name: "twitter:title", content: ARCADE_TITLE },
       { name: "twitter:description", content: ARCADE_DESC },
+      { name: "twitter:site", content: "@StafPrintCenter" },
+
+      /* Google Verification */
+      { name: "google-site-verification", content: "OdKxHpVkBSxk0mj4vD4OTmZPdVi5pWzyCu4QPIMHy9A" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
