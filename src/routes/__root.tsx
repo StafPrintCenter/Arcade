@@ -48,30 +48,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" },
-      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
     ],
     scripts: [
-      /* 1. Schéma WebPage / TechArticle pour le hub de documentation */
+      /* 1. Schéma WebApplication (GameApplication) pour la plateforme interactive */
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          "@id": `${SITE_LINK.arcadeUrl}/#webpage`,
+          "@type": "WebApplication",
+          "@id": `${SITE_LINK.arcadeUrl}/#webapp`,
           url: SITE_LINK.arcadeUrl,
-          name: ARCADE_TITLE,
+          name: `SPC Arcade - Hub Gamification`,
+          applicationCategory: "GameApplication",
+          operatingSystem: "All",
           description: ARCADE_DESC,
           inLanguage: "fr-BJ",
           publisher: {
             "@type": "Organization",
             name: SITE.name,
             logo: { "@type": "ImageObject", url: `${logo.meta}` }
-          },
-          mainEntity: {
-            "@type": "ItemList",
-            name: "Rubriques de documentation",
-            description: "Guides utilisateurs, procédures de suivi de commande, formations et support technique."
           }
         }),
       }
