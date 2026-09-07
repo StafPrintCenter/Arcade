@@ -34,6 +34,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
       /* Twitter / X */
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `${logo.meta}` },
       { name: "twitter:title", content: ARCADE_TITLE },
       { name: "twitter:description", content: ARCADE_DESC },
     ],
