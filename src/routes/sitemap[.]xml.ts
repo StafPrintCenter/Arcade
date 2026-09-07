@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { } from "@tanstack/react-start";
 
-const RAW_URL = import.meta.env.VITE_STEVE_URL;
+const RAW_URL = import.meta.env.VITE_ARCADE_URL;
 const BASE_URL = RAW_URL.replace(/\/$/, "");
 
 interface SitemapEntry {
