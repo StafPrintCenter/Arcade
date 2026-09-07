@@ -28,7 +28,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:image", content: `${logo.meta}` },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: `Documentation Officielle ${SITE.name}` },
+      { property: "og:image:alt", content: `SPC Arcade - Hub de jeux et défis créatifs de ${SITE.name}` },
       { property: "og:url", content: `${SITE_LINK.arcadeUrl}` },
       { property: "og:locale", content: "fr_BJ" },
 
