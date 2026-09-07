@@ -4,12 +4,12 @@ export const STORAGE_KEY = "spc_arcade_profile";
 
 export const LEVELS: Array<{ level: number; xp: number; title: string }> = [
   { level: 1, xp: 0, title: "Stagiaire Studio" },
-  { level: 2, xp: 150, title: "Assistant PAO" },
-  { level: 3, xp: 400, title: "Technicien PAO" },
-  { level: 4, xp: 800, title: "Infographiste Senior" },
-  { level: 5, xp: 1400, title: "Chef de Fabrication" },
-  { level: 6, xp: 2200, title: "Directeur Artistique" },
-  { level: 7, xp: 3200, title: "Légende STAF" },
+  { level: 2, xp: 1500, title: "Assistant PAO" },
+  { level: 3, xp: 4000, title: "Technicien PAO" },
+  { level: 4, xp: 10000, title: "Infographiste Senior" },
+  { level: 5, xp: 25500, title: "Chef de Fabrication" },
+  { level: 6, xp: 60000, title: "Directeur Artistique" },
+  { level: 7, xp: 150000, title: "Légende STAF" },
 ];
 
 export function levelFromXP(xp: number) {
