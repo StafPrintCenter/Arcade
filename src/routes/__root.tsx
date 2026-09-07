@@ -7,8 +7,8 @@ import { SITE, SITE_LINK } from "@/data/site";
 import logo from "@/assets/logos.json";
 import { NotFoundComponent, ErrorComponent } from "@/components/errors";
 
-const ARCADE_TITLE = `SPC Arcade - Jeux & gamification ${SITE.name}`;
-const ARCADE_DESC = `Hub de jeux interactifs et défis technico-créatifs pour tester vos compétences en prépresse, web design, retouche et gestion d'agence.`;
+const ARCADE_TITLE = `SPC Arcade | Jeux Interactifs & Défis Design, Web et Prépresse - ${SITE.name}`;
+const ARCADE_DESC = `Plateforme de mini-jeux et défis technico-créatifs pour tester vos compétences en graphisme, prépresse, retouche d'image et création web avec ${SITE.name}.`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -50,6 +50,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
       { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
+    ],
+    scripts: [
+      /* 1. Schéma WebPage / TechArticle pour le hub de documentation */
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": `${SITE_LINK.arcadeUrl}/#webpage`,
+          url: SITE_LINK.arcadeUrl,
+          name: ARCADE_TITLE,
+          description: ARCADE_DESC,
+          inLanguage: "fr-BJ",
+          publisher: {
+            "@type": "Organization",
+            name: SITE.name,
+            logo: { "@type": "ImageObject", url: `${logo.meta}` }
+          },
+          mainEntity: {
+            "@type": "ItemList",
+            name: "Rubriques de documentation",
+            description: "Guides utilisateurs, procédures de suivi de commande, formations et support technique."
+          }
+        }),
+      }
     ],
   }),
   shellComponent: RootShell,
