@@ -206,7 +206,7 @@ export function ProfileSetup({
                   type="button"
                   onClick={() => setSkinTone(t.id)}
                   className={cn(
-                    "flex flex-col items-center gap-1 rounded-xl border border-border bg-secondary/40 px-3 py-2 text-xs",
+                    "flex flex-col items-center gap-1 rounded-xl border border-border bg-secondary/40 px-3 py-2 text-xs cursor-pointer",
                     skinTone === t.id && "border-primary bg-primary/15 neon-glow",
                   )}
                 >
