@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { } from "@tanstack/react-start";
+import { GAMES } from "@/lib/arcade/data";
 
 // 1. Sécurisation de l'URL de base
 const RAW_URL = import.meta.env.VITE_ARCADE_URL;
@@ -35,15 +36,13 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/", lastmod: TODAY, changefreq: "weekly", priority: "1.0" },
         ];
 
-        for (const space of docsRegistry) {
-          for (const article of spaceArticles(space)) {
-            entries.push({
-              path: `/docs/${space.id}/${article.slug}`,
-              lastmod: TODAY,
-              changefreq: "monthly",
-              priority: "0.8",
-            });
-          }
+        for (const game of GAMES) {
+          entries.push({
+            path: `/play/${game.id}`,
+            lastmod: TODAY,
+            changefreq: "monthly",
+            priority: "0.8",
+          });
         }
 
         const urls = entries.map((e) =>
