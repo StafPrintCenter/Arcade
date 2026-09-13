@@ -25,7 +25,7 @@ export function PageFooter() {
           className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground sm:justify-end"
         >
           <a
-            href={`${SITE_LINK.docsUrl}/docs/toolkit/guide-complet`}
+            href={`${SITE_LINK.docsUrl}/docs/arcade/profil-et-progression`}
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4 transition-colors hover:text-primary"
