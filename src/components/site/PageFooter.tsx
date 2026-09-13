@@ -2,18 +2,38 @@ import { SITE, SITE_LINK } from "@/data/site";
 
 export function PageFooter() {
   return (
-    <footer className="mt-auto border-t border-border bg-background/50 py-8 backdrop-blur-xs text-center">
-      <p className="mx-auto max-w-6xl px-4 text-xs text-muted-foreground sm:px-6">
-        © {new Date().getFullYear()} SPC Arcade · Hub propulsé par{" "}
-        <a
-          href={SITE_LINK.landingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium underline underline-offset-4 hover:text-foreground transition-colors cursor-pointer"
+    <footer className="border-t border-border/70 bg-card/40">
+      <div className="mx-auto flex min-h-16 w-full max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-3">
+        {/* Copyright */}
+        <p className="text-center text-xs text-muted-foreground sm:text-left">
+          © {new Date().getFullYear()} SPC Arcade · Tous droits réservés.
+          <span className="mx-1.5 hidden text-muted-foreground/50 sm:inline">|</span>
+
+          <a
+            href={SITE_LINK.landingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 block font-medium underline underline-offset-4 transition-colors hover:text-primary sm:mt-0 sm:inline"
+          >
+            {SITE.name}
+          </a>
+        </p>
+
+        {/* Liens */}
+        <nav
+          aria-label="Liens légaux"
+          className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground sm:justify-end"
         >
-          {SITE.name}
-        </a>.
-      </p>
+          <a
+            href={`${SITE_LINK.docsUrl}/docs/toolkit/guide-complet`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 transition-colors hover:text-primary"
+          >
+            Lire la Documentation
+          </a>
+        </nav>
+      </div>
     </footer>
   );
 }
