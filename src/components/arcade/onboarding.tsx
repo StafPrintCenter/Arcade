@@ -229,7 +229,7 @@ export function ProfileSetup({
                 type="button"
                 onClick={() => setBase(b)}
                 className={cn(
-                  "flex size-12 items-center justify-center rounded-xl border border-border bg-secondary/40 text-2xl",
+                  "flex size-12 items-center justify-center rounded-xl border border-border bg-secondary/40 text-2xl cursor-pointer",
                   base === b && "border-primary bg-primary/15 neon-glow",
                 )}
               >
