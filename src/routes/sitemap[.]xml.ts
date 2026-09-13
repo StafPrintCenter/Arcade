@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type { } from "@tanstack/react-start";
 
 // 1. Sécurisation de l'URL de base
-const RAW_URL = import.meta.env.VITE_TOOLKIT_URL;
+const RAW_URL = import.meta.env.VITE_ARCADE_URL;
 const BASE_URL = RAW_URL.replace(/\/$/, "");
 
 // Date du jour pour les entités dépourvues de date ISO
@@ -33,16 +33,6 @@ export const Route = createFileRoute("/sitemap.xml")({
         // 2. Pages statiques de base
         const entries: SitemapEntry[] = [
           { path: "/", lastmod: TODAY, changefreq: "weekly", priority: "1.0" },
-          { path: "/barcode-generator", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
-          { path: "/bleed-generator", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
-          { path: "/dpi-calculator", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
-          { path: "/fold-simulator", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
-          { path: "/nesting-calc", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
-          { path: "/pdf-tools", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
-          { path: "/rgb-to-cmyk", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
-          { path: "/spine-calculator", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
-          { path: "/tac-checker", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
-          { path: "/textile-guide", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
         ];
 
         const urls = entries.map((e) =>
