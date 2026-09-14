@@ -7,14 +7,14 @@ declare global {
   interface Window {
     dataLayer: unknown[];
     gtag: (...args: unknown[]) => void;
-    __spcArcadeGaLoaded?: boolean;
+    __spcGaLoaded?: boolean;
   }
 }
 
 // 1. Charge la balise Google Analytics de manière dynamique
 export function loadGA() {
-  if (typeof window === "undefined" || window.__spcArcadeGaLoaded) return;
-  window.__spcArcadeGaLoaded = true;
+  if (typeof window === "undefined" || window.__spcGaLoaded) return;
+  window.__spcGaLoaded = true;
 
   const s = document.createElement("script");
   s.async = true;
