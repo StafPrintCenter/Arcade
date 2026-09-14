@@ -136,13 +136,7 @@ export function NotFoundComponent() {
             </div>
           </div>
         </div>
-
       </main>
-
-      {/* Footer minimaliste */}
-      <footer className="relative z-10 mx-auto font-mono text-[11px] text-muted-foreground">
-        PRESS <kbd className="px-1.5 py-0.5 text-[10px] font-semibold bg-muted border border-border rounded-md text-foreground">A</kbd> TO RESPAWN
-      </footer>
     </div>
   );
 }
