@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { RotateCcw, ArrowLeft, Gamepad } from "lucide-react";
+import { RotateCcw, ArrowLeft, Gamepad2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function NotFoundComponent() {
@@ -44,7 +44,7 @@ export function NotFoundComponent() {
             {/* En-tête de l'écran */}
             <div className="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3 text-[11px] text-emerald-600">
               <span className="flex items-center gap-1">
-                <Gamepad size={12} className="text-destructive" /> ERROR_404
+                <Gamepad2 size={12} className="text-destructive" /> ERROR_404
               </span>
               <span>NO_SIGNAL</span>
             </div>
@@ -99,7 +99,7 @@ export function NotFoundComponent() {
                 >
                   <ArrowLeft size={16} className="text-foreground" />
                 </button>
-                <span className="font-mono text-[10px] font-bold text-muted-foreground">B</span>
+                <span className="font-mono text-[10px] font-bold text-muted-foreground">Retour</span>
               </div>
 
               {/* Bouton A (Accueil) */}
@@ -111,7 +111,7 @@ export function NotFoundComponent() {
                 >
                   <RotateCcw size={16} />
                 </Link>
-                <span className="font-mono text-[10px] font-bold text-muted-foreground">A</span>
+                <span className="font-mono text-[10px] font-bold text-muted-foreground">Accueil</span>
               </div>
             </div>
 
@@ -135,17 +135,6 @@ export function NotFoundComponent() {
               <span className="font-mono text-[9px] font-bold text-muted-foreground">START</span>
             </div>
           </div>
-
-        </div>
-
-        {/* Action alternative en texte hors de la manette */}
-        <div className="mt-6 flex gap-3">
-          <Button asChild variant="ghost" size="sm" className="rounded-full text-xs text-muted-foreground">
-            <Link to="/">
-              <RotateCcw className="mr-1.5 h-3.5 w-3.5" />
-              Réinitialiser la partie
-            </Link>
-          </Button>
         </div>
 
       </main>
