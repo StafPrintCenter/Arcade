@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { RotateCcw, ArrowLeft, Skull, Gamepad2 } from "lucide-react";
+import { RotateCcw, ArrowLeft, Gamepad } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function NotFoundComponent() {
@@ -32,7 +32,7 @@ export function NotFoundComponent() {
               </span>
             </div>
             <div className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
-              SPC-GAMING
+              SPC-ARCADE
             </div>
           </div>
 
@@ -44,14 +44,14 @@ export function NotFoundComponent() {
             {/* En-tête de l'écran */}
             <div className="flex items-center justify-between border-b border-emerald-900/60 pb-2 mb-3 text-[11px] text-emerald-600">
               <span className="flex items-center gap-1">
-                <Skull size={12} className="text-destructive" /> ERROR_404
+                <Gamepad size={12} className="text-destructive" /> ERROR_404
               </span>
               <span>NO_SIGNAL</span>
             </div>
 
             {/* Contenu affiché sur l'écran */}
             <div className="space-y-2 text-center py-2">
-              <p className="text-xs text-destructive font-bold uppercase tracking-widest animate-pulse">
+              <p className="text-xs text-destructive font-bold uppercase tracking-widest">
                 [ GAME OVER ]
               </p>
               <h1 className="text-xl sm:text-2xl font-black tracking-tight text-emerald-300 font-display">
@@ -65,7 +65,7 @@ export function NotFoundComponent() {
             {/* Pied d'écran avec prompt clignotant */}
             <div className="mt-3 pt-2 border-t border-emerald-900/60 flex justify-between items-center text-[10px] text-emerald-600">
               <span>STAGE_MISSING</span>
-              <span className="animate-pulse">&gt; PRESS_START_</span>
+              <span>&gt; PRESS_START_</span>
             </div>
           </div>
 
