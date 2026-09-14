@@ -27,17 +27,8 @@ export function PageHeader({ children }: PageHeaderProps) {
                 className="h-10 w-auto hidden dark:block sm:hidden!"
               />
 
-              {/* DESKTOP avec children : DC (clair) / DW (sombre) */}
-              <img
-                src={logo.dc}
-                alt="Logo SPC"
-                className="h-10 w-auto hidden sm:block dark:hidden! md:h-12"
-              />
-              <img
-                src={logo.dw}
-                alt="Logo SPC"
-                className="h-10 w-auto hidden dark:sm:block md:h-12"
-              />
+              {/* DESKTOP avec children : Logo desktop (DC/DW) */}
+              <SpcDeskLogo className="hidden h-10 w-auto sm:block md:h-12" />
             </>
           ) : (
             <>
