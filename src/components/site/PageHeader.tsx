@@ -35,7 +35,7 @@ export function PageHeader({ children }: PageHeaderProps) {
         )}
 
         {/* Bouton ThemeToggle à droite */}
-        <div className="flex items-center shrink-0">
+        <div className="flex shrink-0 items-center">
           <ThemeToggle />
         </div>
       </div>
