@@ -7,7 +7,7 @@ import { AVATAR_BASES, GENDERS, SKIN_TONES, withSkinTone } from "@/lib/arcade/da
 import type { ArcadeProfile, Gender } from "@/lib/arcade/types";
 import { SITE_LINK } from "@/data/site";
 import { cn } from "@/lib/utils";
-import { updateGaConsent } from "@/components/site/CookieConsent";
+import { updateGaConsent } from "@/components/site";
 
 function Overlay({ children }: { children: React.ReactNode }) {
   return (
