@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ThemeToggle } from "@/components/arcade/themeToggle";
-import { SpcMobLogo, SpcDeskLogo } from "@/components/site/SpcLogo";
+import { ThemeToggle } from "./";
+import { SpcMobLogo, SpcDeskLogo } from "@/components/site";
 
 interface PageHeaderProps {
   children?: React.ReactNode;
@@ -34,7 +34,6 @@ export function PageHeader({ children }: PageHeaderProps) {
           </div>
         )}
 
-        {/* Bouton ThemeToggle à droite */}
         <div className="flex shrink-0 items-center">
           <ThemeToggle />
         </div>
