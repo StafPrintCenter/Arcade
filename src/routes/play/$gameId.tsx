@@ -75,7 +75,8 @@ function PlayPage() {
       <ArcadeShell>
         <div className="relative flex min-h-[75vh] w-full flex-col items-center justify-center overflow-hidden px-4 py-12 text-center">
           {/* Grille d'arrière-plan avec lueur néon */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:2rem_2rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-size-[2rem_2rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
