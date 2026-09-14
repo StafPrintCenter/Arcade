@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AVATAR_BASES, GENDERS, SKIN_TONES, withSkinTone } from "@/lib/arcade/data";
 import type { ArcadeProfile, Gender } from "@/lib/arcade/types";
-import { SITE, SITE_LINK } from "@/data/site";
+import { SITE_LINK } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { updateGaConsent } from "@/components/site/CookieConsent";
 
@@ -30,10 +30,6 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
     updateGaConsent(analyticsEnabled ? "accepted" : "declined");
     onAccept();
   };
-
-  const baseUrl = SITE_LINK.landingUrl;
-  const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
-  const mentionsLegalUrl = `${cleanBaseUrl}/legal/mentions#cookies`;
 
   return (
     <Overlay>
@@ -98,14 +94,13 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
         Les jeux sont pédagogiques et
         fictifs ; les briefs clients sont imaginaires. Vider le cache du navigateur efface votre progression. En savoir plus dans nos{" "}
         <a
-          href={mentionsLegalUrl}
+          href={`${SITE_LINK.landingUrl}/legal/mentions#cookies`}
           target="_blank"
           rel="noopener noreferrer"
           className="underline hover:text-primary"
         >
           mentions légales
-        </a>
-        .
+        </a>.
       </p>
 
       <Button className="mt-6 w-full cursor-pointer" onClick={handleAccept}>
