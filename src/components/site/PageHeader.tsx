@@ -15,17 +15,8 @@ export function PageHeader({ children }: PageHeaderProps) {
         <Link to="/" className="shrink-0 transition-opacity hover:opacity-80">
           {hasChildren ? (
             <>
-              {/* MOBILE avec children : MC (clair) / MW (sombre) */}
-              <img
-                src={logo.mc}
-                alt="Logo SPC"
-                className="h-10 w-auto block dark:hidden sm:hidden!"
-              />
-              <img
-                src={logo.mw}
-                alt="Logo SPC"
-                className="h-10 w-auto hidden dark:block sm:hidden!"
-              />
+              {/* MOBILE avec children : Logo mobile (MC/MW) */}
+              <SpcMobLogo className="h-10 w-auto sm:hidden" />
 
               {/* DESKTOP avec children : Logo desktop (DC/DW) */}
               <SpcDeskLogo className="hidden h-10 w-auto sm:block md:h-12" />
