@@ -15,14 +15,10 @@ export function PageHeader({ children }: PageHeaderProps) {
         <Link to="/" className="shrink-0 transition-opacity hover:opacity-80">
           {hasChildren ? (
             <>
-              {/* MOBILE avec children : Logo mobile */}
               <SpcMobLogo className="h-10 w-auto sm:hidden" />
-
-              {/* DESKTOP avec children : Logo desktop */}
               <SpcDeskLogo className="hidden h-10 w-auto sm:block md:h-12" />
             </>
           ) : (
-            /* SANS children : Logo desktop sur tous les écrans */
             <SpcDeskLogo className="h-10 w-auto md:h-12" />
           )}
         </Link>
