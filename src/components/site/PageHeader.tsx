@@ -29,7 +29,7 @@ export function PageHeader({ children }: PageHeaderProps) {
 
         {/* Zone centrale children */}
         {hasChildren && (
-          <div className="flex flex-1 items-center min-w-0 mx-2 sm:mx-4">
+          <div className="mx-2 flex min-w-0 flex-1 items-center sm:mx-4">
             {children}
           </div>
         )}
