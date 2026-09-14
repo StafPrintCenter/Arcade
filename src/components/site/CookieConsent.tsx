@@ -1,5 +1,5 @@
 export const STORAGE_KEY = "spc_arcade_cookie_consent_v1";
-const GA_ID = "G-Z2WEXR6BRE";
+const GA_ID = "G-9KKPS2WDX4";
 
 export type Consent = "accepted" | "declined";
 
