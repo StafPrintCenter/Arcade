@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logos.json";
 import { ThemeToggle } from "@/components/arcade/themeToggle";
+import { SpcMobLogo, SpcDeskLogo } from "@/components/site/SpcLogo";
 
 interface PageHeaderProps {
   children?: React.ReactNode;
