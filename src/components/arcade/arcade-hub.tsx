@@ -1,14 +1,9 @@
 import { useState } from "react";
 import { Pencil, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ArcadeShell } from "@/components/site/ArcadeShell";
+import { ArcadeShell } from "@/components/site";
 import { ProfileSetup, TermsBanner } from "@/components/arcade/onboarding";
-import {
-  UserProfileCard,
-  GameCatalog,
-  BadgesGrid,
-  LocalLeaderboard,
-} from "@/components/ArcadeHub";
+import { UserProfileCard, GameCatalog, BadgesGrid, LocalLeaderboard } from "@/components/ArcadeHub";
 import { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import { GENDERS } from "@/lib/arcade/data";
 
