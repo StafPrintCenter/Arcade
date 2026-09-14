@@ -99,7 +99,7 @@ export function NotFoundComponent() {
                 >
                   <ArrowLeft size={16} className="text-foreground" />
                 </button>
-                <span className="font-mono text-[10px] font-bold text-muted-foreground">Retour</span>
+                <span className="font-mono text-[10px] font-bold text-muted-foreground">R</span>
               </div>
 
               {/* Bouton A (Accueil) */}
@@ -111,7 +111,7 @@ export function NotFoundComponent() {
                 >
                   <RotateCcw size={16} />
                 </Link>
-                <span className="font-mono text-[10px] font-bold text-muted-foreground">Accueil</span>
+                <span className="font-mono text-[10px] font-bold text-muted-foreground">A</span>
               </div>
             </div>
 
@@ -124,7 +124,7 @@ export function NotFoundComponent() {
                 onClick={() => window.history.back()}
                 className="h-3 w-10 rounded-full bg-muted-foreground/40 border border-border active:opacity-60 cursor-pointer"
               />
-              <span className="font-mono text-[9px] font-bold text-muted-foreground">SELECT</span>
+              <span className="font-mono text-[9px] font-bold text-muted-foreground">RETOUR</span>
             </div>
 
             <div className="flex flex-col items-center gap-1">
@@ -132,7 +132,7 @@ export function NotFoundComponent() {
                 to="/"
                 className="h-3 w-10 rounded-full bg-primary/70 border border-primary active:opacity-60 cursor-pointer"
               />
-              <span className="font-mono text-[9px] font-bold text-muted-foreground">START</span>
+              <span className="font-mono text-[9px] font-bold text-muted-foreground">Accueil</span>
             </div>
           </div>
         </div>
