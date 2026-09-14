@@ -70,12 +70,169 @@ function PlayPage() {
 
   if (!game || !Game) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-4 text-center">
-        <h1 className="font-display text-2xl">Jeu introuvable</h1>
-        <Button asChild>
-          <Link to="/">Retour au hub</Link>
-        </Button>
-      </div>
+      <ArcadeShell>
+        <div className="relative flex min-h-[calc(100vh-5rem)] items-center justify-center overflow-hidden px-4 py-12">
+          {/* Décor de fond */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <motion.div
+              animate={{
+                opacity: [0.15, 0.3, 0.15],
+                scale: [1, 1.08, 1],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute left-1/2 top-1/2 size-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl"
+            />
+
+            <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(hsl(var(--foreground))_1px,transparent_1px),linear-gradient(90deg,hsl(var(--foreground))_1px,transparent_1px)] [background-size:32px_32px]" />
+
+            <motion.div
+              animate={{ y: ["-100%", "100%"] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="absolute inset-x-0 h-px bg-primary/20"
+            />
+          </div>
+
+          {/* Console centrale */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="relative z-10 w-full max-w-xl"
+          >
+            <div className="card-arcade overflow-hidden border-primary/20 neon-glow">
+              {/* Barre de terminal */}
+              <div className="flex items-center justify-between border-b border-border bg-secondary/40 px-4 py-3">
+                <div className="flex items-center gap-2">
+                  <span className="size-2.5 rounded-full bg-destructive/70" />
+                  <span className="size-2.5 rounded-full bg-yellow-500/70" />
+                  <span className="size-2.5 rounded-full bg-success/70" />
+                </div>
+
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  SPC // ARCADE SYSTEM
+                </span>
+
+                <span className="font-mono text-[10px] text-muted-foreground">
+                  ERR_404
+                </span>
+              </div>
+
+              {/* Contenu */}
+              <div className="px-6 py-10 text-center sm:px-10">
+                {/* Icône / zone perdue */}
+                <motion.div
+                  animate={{
+                    rotate: [0, -3, 3, -2, 0],
+                    y: [0, -4, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="mx-auto mb-6 flex size-24 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 shadow-[0_0_40px_hsl(var(--primary)/0.15)]"
+                >
+                  <div className="relative font-display text-4xl font-black text-primary">
+                    ?
+                    <span className="absolute -right-3 -top-1 text-xs text-primary/60">
+                      ×
+                    </span>
+                  </div>
+                </motion.div>
+
+                <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
+                  Zone inconnue
+                </p>
+
+                <h1 className="mt-3 font-display text-4xl font-black tracking-tight sm:text-5xl">
+                  GAME NOT FOUND
+                </h1>
+
+                <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-muted-foreground">
+                  Cette partie n'existe pas, a été déplacée ou s'est
+                  probablement échappée du système.
+                </p>
+
+                {/* Faux terminal */}
+                <div className="mt-7 rounded-xl border border-border bg-background/70 p-4 text-left font-mono text-xs">
+                  <div className="flex gap-2">
+                    <span className="text-success">&gt;</span>
+                    <span className="text-muted-foreground">
+                      searching_game_id...
+                    </span>
+                  </div>
+
+                  <div className="mt-2 flex gap-2">
+                    <span className="text-success">&gt;</span>
+                    <span className="text-muted-foreground">
+                      scanning_arcade_sector...
+                    </span>
+                  </div>
+
+                  <div className="mt-2 flex gap-2">
+                    <span className="text-destructive">✕</span>
+                    <span className="text-destructive">
+                      GAME_ID_NOT_FOUND
+                    </span>
+                  </div>
+
+                  <div className="mt-2 flex gap-2">
+                    <span className="text-primary">&gt;</span>
+                    <motion.span
+                      animate={{ opacity: [1, 0, 1] }}
+                      transition={{
+                        duration: 1,
+                        repeat: Infinity,
+                      }}
+                      className="text-primary"
+                    >
+                      _
+                    </motion.span>
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="mt-7 flex flex-col gap-2 sm:flex-row sm:justify-center">
+                  <Button asChild className="sm:min-w-44">
+                    <Link to="/">Retour au Hub</Link>
+                  </Button>
+
+                  <Button
+                    variant="secondary"
+                    asChild
+                    className="sm:min-w-44"
+                  >
+                    <Link to="/">
+                      Explorer les jeux
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+
+              {/* Footer console */}
+              <div className="border-t border-border bg-secondary/20 px-4 py-2">
+                <div className="flex items-center justify-between font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                  <span>Connection: LOST</span>
+                  <span>Sector: 404</span>
+                  <span>Player: ONLINE</span>
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground/50">
+              Some levels are better left undiscovered.
+            </p>
+          </motion.div>
+        </div>
+      </ArcadeShell>
     );
   }
 
