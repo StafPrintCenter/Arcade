@@ -2,7 +2,7 @@ import { useEffect, useState, type ComponentType } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import confetti from "canvas-confetti";
-import { ArrowLeft, Gauge, Trophy } from "lucide-react";
+import { ArrowLeft, Gamepad2, Gauge, Ghost, Home, Sparkles, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import { BADGES, GAMES } from "@/lib/arcade/data";
@@ -69,167 +69,81 @@ function PlayPage() {
   }, [result, freshBadges]);
 
   if (!game || !Game) {
+    const featuredGames = GAMES.slice(0, 3);
+
     return (
       <ArcadeShell>
-        <div className="relative flex min-h-[calc(100vh-5rem)] items-center justify-center overflow-hidden px-4 py-12">
-          {/* Décor de fond */}
-          <div className="pointer-events-none absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{
-                opacity: [0.15, 0.3, 0.15],
-                scale: [1, 1.08, 1],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute left-1/2 top-1/2 size-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl"
-            />
+        <div className="relative flex min-h-[75vh] w-full flex-col items-center justify-center overflow-hidden px-4 py-12 text-center">
+          {/* Grille d'arrière-plan avec lueur néon */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:2rem_2rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
-            <div className="absolute inset-0 opacity-[0.035] bg-[linear-gradient(hsl(var(--foreground))_1px,transparent_1px),linear-gradient(90deg,hsl(var(--foreground))_1px,transparent_1px)] bg-size-[32px_32px]" />
-
-            <motion.div
-              animate={{ y: ["-100%", "100%"] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute inset-x-0 h-px bg-primary/20"
-            />
-          </div>
-
-          {/* Console centrale */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
-            className="relative z-10 w-full max-w-xl"
+            transition={{ duration: 0.4 }}
+            className="relative z-10 mx-auto max-w-xl"
           >
-            <div className="card-arcade overflow-hidden border-primary/20 neon-glow">
-              {/* Barre de terminal */}
-              <div className="flex items-center justify-between border-b border-border bg-secondary/40 px-4 py-3">
-                <div className="flex items-center gap-2">
-                  <span className="size-2.5 rounded-full bg-destructive/70" />
-                  <span className="size-2.5 rounded-full bg-yellow-500/70" />
-                  <span className="size-2.5 rounded-full bg-success/70" />
-                </div>
-
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  SPC // ARCADE SYSTEM
-                </span>
-
-                <span className="font-mono text-[10px] text-muted-foreground">
-                  ERR_404
-                </span>
-              </div>
-
-              {/* Contenu */}
-              <div className="px-6 py-10 text-center sm:px-10">
-                {/* Icône / zone perdue */}
-                <motion.div
-                  animate={{
-                    rotate: [0, -3, 3, -2, 0],
-                    y: [0, -4, 0],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="mx-auto mb-6 flex size-24 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 shadow-[0_0_40px_hsl(var(--primary)/0.15)]"
-                >
-                  <div className="relative font-display text-4xl font-black text-primary">
-                    ?
-                    <span className="absolute -right-3 -top-1 text-xs text-primary/60">
-                      ×
-                    </span>
-                  </div>
-                </motion.div>
-
-                <p className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
-                  Zone inconnue
-                </p>
-
-                <h1 className="mt-3 font-display text-4xl font-black tracking-tight sm:text-5xl">
-                  GAME NOT FOUND
-                </h1>
-
-                <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-muted-foreground">
-                  Cette partie n'existe pas, a été déplacée ou s'est
-                  probablement échappée du système.
-                </p>
-
-                {/* Faux terminal */}
-                <div className="mt-7 rounded-xl border border-border bg-background/70 p-4 text-left font-mono text-xs">
-                  <div className="flex gap-2">
-                    <span className="text-success">&gt;</span>
-                    <span className="text-muted-foreground">
-                      searching_game_id...
-                    </span>
-                  </div>
-
-                  <div className="mt-2 flex gap-2">
-                    <span className="text-success">&gt;</span>
-                    <span className="text-muted-foreground">
-                      scanning_arcade_sector...
-                    </span>
-                  </div>
-
-                  <div className="mt-2 flex gap-2">
-                    <span className="text-destructive">✕</span>
-                    <span className="text-destructive">
-                      GAME_ID_NOT_FOUND
-                    </span>
-                  </div>
-
-                  <div className="mt-2 flex gap-2">
-                    <span className="text-primary">&gt;</span>
-                    <motion.span
-                      animate={{ opacity: [1, 0, 1] }}
-                      transition={{
-                        duration: 1,
-                        repeat: Infinity,
-                      }}
-                      className="text-primary"
-                    >
-                      _
-                    </motion.span>
-                  </div>
-                </div>
-
-                {/* Actions */}
-                <div className="mt-7 flex flex-col gap-2 sm:flex-row sm:justify-center">
-                  <Button asChild className="sm:min-w-44">
-                    <Link to="/">Retour au Hub</Link>
-                  </Button>
-
-                  <Button
-                    variant="secondary"
-                    asChild
-                    className="sm:min-w-44"
-                  >
-                    <Link to="/">
-                      Explorer les jeux
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-
-              {/* Footer console */}
-              <div className="border-t border-border bg-secondary/20 px-4 py-2">
-                <div className="flex items-center justify-between font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                  <span>Connection: LOST</span>
-                  <span>Sector: 404</span>
-                  <span>Player: ONLINE</span>
-                </div>
-              </div>
+            {/* Badge Glitch Arcade */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary uppercase tracking-widest backdrop-blur-md mb-6">
+              <Ghost className="size-3.5 animate-bounce" />
+              <span>ERROR 404 // ZONE INEXPLORÉE</span>
             </div>
 
-            <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground/50">
-              Some levels are better left undiscovered.
+            {/* Illustration Rétro */}
+            <div className="relative mx-auto mb-6 flex size-28 items-center justify-center rounded-3xl border border-border bg-card/50 p-4 shadow-2xl backdrop-blur-xl">
+              <Gamepad2 className="size-16 text-muted-foreground/40" />
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="absolute -top-2 -right-2 grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-lg"
+              >
+                <Sparkles className="size-5" />
+              </motion.div>
+            </div>
+
+            {/* Message principal */}
+            <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
+              Niveau introuvable
+            </h1>
+            <p className="mt-3 text-sm sm:text-base text-muted-foreground max-w-md mx-auto">
+              Ce mini-jeu n'existe pas ou a été déplacé dans une autre dimension. Choisissez un autre défi à relever !
             </p>
+
+            {/* Actions principales */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Button size="lg" className="gap-2 shadow-lg hover:shadow-primary/25" asChild>
+                <Link to="/">
+                  <Home className="size-4" />
+                  Retour au Hub Arcade
+                </Link>
+              </Button>
+            </div>
+
+            {/* Suggestions de jeux */}
+            {featuredGames.length > 0 && (
+              <div className="mt-12 border-t border-border/60 pt-8">
+                <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-4">
+                  Essayez l'un de ces défis :
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {featuredGames.map((g) => (
+                    <Link
+                      key={g.id}
+                      to="/play/$gameId"
+                      params={{ gameId: g.id }}
+                      className="group flex flex-col items-center rounded-xl border border-border/80 bg-card/40 p-3 transition-all hover:border-primary/50 hover:bg-card/80 hover:shadow-md"
+                    >
+                      <span className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {g.name}
+                      </span>
+                      <span className="text-[11px] text-muted-foreground line-clamp-1 mt-0.5">
+                        {g.tagline}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </motion.div>
         </div>
       </ArcadeShell>
