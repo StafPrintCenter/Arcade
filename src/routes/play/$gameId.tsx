@@ -85,7 +85,7 @@ function PlayPage() {
           >
             {/* Badge Glitch Arcade */}
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary uppercase tracking-widest backdrop-blur-md mb-6">
-              <Ghost className="size-3.5 animate-bounce" />
+              <Ghost className="size-3.5" />
               <span>ERROR 404 // ZONE INEXPLORÉE</span>
             </div>
 
@@ -133,7 +133,7 @@ function PlayPage() {
                       params={{ gameId: g.id }}
                       className="group flex flex-col items-center rounded-xl border border-border/80 bg-card/40 p-3 transition-all hover:border-primary/50 hover:bg-card/80 hover:shadow-md"
                     >
-                      <span className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                      <span className="font-display text-sm font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1">
                         {g.name}
                       </span>
                       <span className="text-[11px] text-muted-foreground line-clamp-1 mt-0.5">
