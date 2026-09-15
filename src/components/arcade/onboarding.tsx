@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AVATAR_BASES, GENDERS, SKIN_TONES, withSkinTone } from "@/lib/arcade/data";
 import type { ArcadeProfile, Gender } from "@/lib/arcade/types";
-import { SITE_LINK } from "@/data/site";
+import { SITE, SITE_LINK } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { updateGaConsent } from "@/components/site";
 
@@ -38,7 +38,7 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
       </span>
       <h2 className="mt-4 font-display text-2xl">Conditions & Confidentialité</h2>
       <p className="mt-1 text-sm text-muted-foreground">
-        Avant de jouer sur SPC Arcade, prenez connaissance de ces quelques règles simples.
+        Avant de jouer sur {SITE.tool}, prenez connaissance de ces quelques règles simples.
       </p>
 
       <ul className="mt-5 space-y-3 text-sm">
