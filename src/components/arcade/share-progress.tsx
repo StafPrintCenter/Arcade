@@ -12,7 +12,7 @@ function shareUrl() {
 export function ShareProgress({ message, compact }: { message: string; compact?: boolean }) {
   const [copied, setCopied] = useState(false);
   const url = shareUrl();
-  const text = `${message} - SPC Arcade, le hub de jeux de ${SITE.name}.`;
+  const text = `${message} - ${SITE.tool}, le hub de jeux de ${SITE.name}.`;
   const e = encodeURIComponent;
 
   const links = [
