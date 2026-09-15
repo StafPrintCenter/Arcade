@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArcadeHub } from "@/components/arcade/arcade-hub";
 import { SITE } from "@/data/site";
 
-const ARCADE_TITLE = `SPC Arcade - Jeux & gamification ${SITE.name}`;
+const ARCADE_TITLE = `${SITE.tool} - Jeux & gamification ${SITE.name}`;
 const ARCADE_DESC = `Jouez aux 4 jeux du studio ${SITE.name} : prépresse, gestion d'agence créative, escape game print & web et micro-défis arcade.`;
 
 export const Route = createFileRoute("/")({
