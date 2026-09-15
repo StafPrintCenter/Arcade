@@ -26,9 +26,9 @@ import { SITE } from "@/data/site";
 export const Route = createFileRoute("/play/$gameId")({
   head: () => ({
     meta: [
-      { title: "Partie en cours | SPC Arcade" },
-      { name: "description", content: "Session de jeu SPC Arcade : score, chronomètre et XP en temps réel." },
-      { property: "og:title", content: "Partie en cours - SPC Arcade" },
+      { title: `Partie en cours | ${SITE.tool}` },
+      { name: "description", content: `Session de jeu ${SITE.tool} : score, chronomètre et XP en temps réel.` },
+      { property: "og:title", content: `Partie en cours - ${SITE.tool}` },
       { property: "og:description", content: `Jouez et gagnez de l'XP dans le hub de jeux ${SITE.name}.` },
     ],
   }),
