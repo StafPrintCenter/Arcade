@@ -7,7 +7,7 @@ import { SITE, SITE_LINK } from "@/data/site";
 import logo from "@/assets/logos.json";
 import { NotFoundComponent, ErrorComponent } from "@/components/errors";
 
-const ARCADE_TITLE = `SPC Arcade | Jeux Interactifs & Défis Design, Web et Prépresse - ${SITE.name}`;
+const ARCADE_TITLE = `${SITE.tool} | Jeux Interactifs & Défis Design, Web et Prépresse - ${SITE.name}`;
 const ARCADE_DESC = `Plateforme de mini-jeux et défis technico-créatifs pour tester vos compétences en graphisme, prépresse, retouche d'image et création web avec ${SITE.name}.`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -24,11 +24,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: ARCADE_TITLE },
       { property: "og:description", content: ARCADE_DESC },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: `SPC Arcade - ${SITE.name}` },
+      { property: "og:site_name", content: `${SITE.tool} - ${SITE.name}` },
       { property: "og:image", content: `${logo.meta}` },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: `SPC Arcade - Hub de jeux et défis créatifs de ${SITE.name}` },
+      { property: "og:image:alt", content: `${SITE.tool} - Hub de jeux et défis créatifs de ${SITE.name}` },
       { property: "og:url", content: `${SITE_LINK.arcadeUrl}` },
       { property: "og:locale", content: "fr_BJ" },
 
@@ -60,7 +60,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "WebApplication",
           "@id": `${SITE_LINK.arcadeUrl}/#webapp`,
           url: SITE_LINK.arcadeUrl,
-          name: `SPC Arcade - Hub Gamification`,
+          name: `${SITE.tool} - Hub Gamification`,
           applicationCategory: "GameApplication",
           operatingSystem: "All",
           description: ARCADE_DESC,
