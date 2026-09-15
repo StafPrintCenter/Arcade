@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Zap } from "lucide-react";
 import { ShareProgress } from "@/components/arcade/share-progress";
 import type { useArcadeProfile } from "@/hooks/useArcadeProfile";
+import { SITE } from "@/data/site";
 
 interface UserProfileCardProps {
   profile: ReturnType<typeof useArcadeProfile>["profile"];
@@ -68,7 +69,7 @@ export function UserProfileCard({
         </p>
         <ShareProgress
           compact
-          message={`Je suis ${title} (niveau ${level}) avec ${profile.totalXP} XP sur SPC Arcade !`}
+          message={`Je suis ${title} (niveau ${level}) avec ${profile.totalXP} XP sur ${SITE.tool} !`}
         />
       </div>
     </section>
