@@ -5,6 +5,15 @@ import { pick, sample } from "@/lib/arcade/random";
 import { cn } from "@/lib/utils";
 import { SITE } from "@/data/site";
 
+/** Calcule la date actuelle + 5 jours au format JJ/MM */
+function getExpiryDate() {
+  const date = new Date();
+  date.setDate(date.getDate() + 5);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  return `${day}/${month}`;
+}
+
 type DefectId = "subtitle" | "body" | "price" | "logo" | "badge" | "cta" | "footer" | "title";
 
 const DEFECTS: Record<DefectId, { label: string; explain: string; ok: string }> = {
@@ -64,6 +73,7 @@ export function ErrorHunt({ setScore, setStatus, onFinish }: GameProps) {
   const [bad] = useState<DefectId[]>(() => sample(ALL, 3 + Math.floor(Math.random() * 3)));
   const [picked, setPicked] = useState<DefectId[]>([]);
   const [done, setDone] = useState(false);
+  const [expiryDate] = useState(() => getExpiryDate());
 
   const totalBad = bad.length;
   const found = picked.filter((id) => bad.includes(id)).length;
@@ -157,7 +167,7 @@ export function ErrorHunt({ setScore, setStatus, onFinish }: GameProps) {
 
           <div className={zone("footer", "mt-4")} onClick={() => toggle("footer")}>
             <p className={cn(has("footer") ? "text-[6px] text-slate-300" : "text-[10px] text-slate-500")}>
-              Offre valable jusqu'au 30/09 - ${SITE.name}, Porto-Novo.
+              Offre valable jusqu'au {expiryDate} - {SITE.name}, Porto-Novo.
             </p>
           </div>
         </div>
