@@ -3,6 +3,7 @@ import { Panel, Stat, type GameProps } from "@/components/arcade/game-kit";
 import { Button } from "@/components/ui/button";
 import { pick as pickOne, shuffle } from "@/lib/arcade/random";
 import { cn } from "@/lib/utils";
+import { SITE } from "@/data/site";
 
 const BRIEFS = [
   { text: "Affiche promo : « -20% sur toutes les impressions grand format ».", head: "-20%", tail: "grand format" },
@@ -130,9 +131,9 @@ export function VisualCreator({ setScore, setStatus, onFinish }: GameProps) {
             <p className={cn("font-display leading-none", picks.titre === "gros" ? "text-4xl" : picks.titre === "moyen" ? "text-2xl" : "text-base")}>
               {brief.head} <span className={accent}>{brief.tail}</span>
             </p>
-            {picks.titre === "moyen" ? <p className="text-[10px] opacity-70">Sur toutes vos impressions grand format ce mois-ci chez STAF PRINT CENTER.</p> : null}
+            {picks.titre === "moyen" ? <p className="text-[10px] opacity-70">Sur toutes vos impressions grand format ce mois-ci chez {SITE.name}.</p> : null}
             <p className={cn("text-[10px] font-semibold uppercase tracking-[0.2em]", picks.logo === "bord" && "-mb-4 -ml-4", picks.logo === "centre" && "self-center")}>
-              STAF PRINT CENTER
+              {SITE.name}
             </p>
           </div>
         </Panel>
