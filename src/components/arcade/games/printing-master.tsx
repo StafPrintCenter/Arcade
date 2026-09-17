@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { AlertTriangle, CheckCircle2, FileWarning } from "lucide-react";
 import { ChoiceButton, Panel, Stat, type GameProps } from "../game-kit";
 import { Button } from "@/components/ui/button";
+import { SITE } from "@/data/site";
 
 const FIXES = [
   { id: "dpi", label: "Rééchantillonner en 300 DPI" },
@@ -45,7 +46,7 @@ const ORDERS: Order[] = [
     issues: ["cmyk", "support"],
   },
   {
-    client: "STAF Print Center",
+    client: `${SITE.name}`,
     job: "Cartes de visite pelliculées",
     support: "Papier couché 350 g",
     specs: ["Résolution : 300 DPI", "Profil : CMJN (Fogra39)", "Fond perdu : 3 mm", "Textes : vectorisés"],
