@@ -3,6 +3,7 @@ import { Panel, Stat, type GameProps } from "@/components/arcade/game-kit";
 import { Button } from "@/components/ui/button";
 import { pick, sample } from "@/lib/arcade/random";
 import { cn } from "@/lib/utils";
+import { SITE } from "@/data/site";
 
 type DefectId = "subtitle" | "body" | "price" | "logo" | "badge" | "cta" | "footer" | "title";
 
@@ -156,7 +157,7 @@ export function ErrorHunt({ setScore, setStatus, onFinish }: GameProps) {
 
           <div className={zone("footer", "mt-4")} onClick={() => toggle("footer")}>
             <p className={cn(has("footer") ? "text-[6px] text-slate-300" : "text-[10px] text-slate-500")}>
-              Offre valable jusqu'au 30/09 - STAF PRINT CENTER, Porto-Novo.
+              Offre valable jusqu'au 30/09 - ${SITE.name}, Porto-Novo.
             </p>
           </div>
         </div>
