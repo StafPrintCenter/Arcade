@@ -2,10 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import type { } from "@tanstack/react-start";
 import { GAMES } from "@/lib/arcade/data";
 
-// 1. Sécurisation de l'URL de base
-const RAW_URL = import.meta.env.VITE_ARCADE_URL;
-const BASE_URL = RAW_URL.replace(/\/$/, "");
-
 // Date du jour pour les entités dépourvues de date ISO
 const TODAY = new Date().toISOString().split("T")[0];
 
