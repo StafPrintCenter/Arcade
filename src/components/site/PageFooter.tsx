@@ -11,7 +11,7 @@ export function PageFooter() {
 
   return (
     <footer className="border-t border-border/70 bg-card/40">
-      <div className="mx-auto flex min-h-16 w-full max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-3">
+      <div className="mx-auto flex min-h-16 w-full max-w-6xl flex-col items-center justify-between gap-4 px-6 py-4 sm:flex-row sm:py-3">
         {/* Copyright */}
         <p className="text-center text-xs text-muted-foreground sm:text-left">
           © {new Date().getFullYear()} {SITE.tool} · Tous droits réservés.
