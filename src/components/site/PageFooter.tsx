@@ -27,20 +27,40 @@ export function PageFooter() {
           </a>
         </p>
 
-        {/* Liens */}
-        <nav
-          aria-label="Liens légaux"
-          className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground sm:justify-end"
-        >
-          <a
-            href={`${SITE_LINK.docsUrl}/docs/arcade/profil-et-progression`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-4 transition-colors hover:text-primary"
+        {/* Liens de navigation & Réseaux sociaux */}
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+          <nav
+            aria-label="Navigation secondaire"
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground"
           >
-            Lire la Documentation
-          </a>
-        </nav>
+            <a
+              href={`${SITE_LINK.docsUrl}/docs/arcade/profil-et-progression`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 transition-colors hover:text-primary"
+            >
+              Lire la Documentation
+            </a>
+          </nav>
+
+          <span className="hidden text-muted-foreground/30 sm:inline">|</span>
+
+          {/* Réseaux sociaux */}
+          <div className="flex items-center gap-2">
+            {socialLinks.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-primary"
+              >
+                <Icon className="size-4" />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </footer>
   );
