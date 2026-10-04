@@ -116,7 +116,7 @@ export function VipPassModal({ open, onClose }: { open: boolean; onClose: () => 
             className="relative w-full max-w-md rounded-2xl border border-border bg-card p-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <button onClick={onClose} className="absolute right-3 top-3 text-muted-foreground" aria-label="Fermer">
+            <button onClick={onClose} className="absolute right-3 top-3 text-muted-foreground cursor-pointer" aria-label="Fermer">
               <X className="size-5" />
             </button>
             <Crown className="size-8 text-primary" />
