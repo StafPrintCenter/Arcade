@@ -9,8 +9,8 @@ export const ADSENSE_SLOTS = {
 export const FEDAPAY_URL = "https://me.fedapay.com/spc-stop-aracde-pub";
 export const PASS_DURATION_MS = 7 * 24 * 3600 * 1000;
 
-const RETURN_TOKEN = (import.meta.env['VITE_FEDAPAY_RETURN_TOKEN'] as string | undefined) ?? "spc7d-k9x4q2";
-const SALT = (import.meta.env['VITE_VIP_SALT'] as string | undefined) ?? "STAF-PRINT-PORTO-NOVO";
+const RETURN_TOKEN = (import.meta.env['VITE_FEDAPAY_RETURN_TOKEN'] as string | undefined) ?? "";
+const SALT = (import.meta.env['VITE_VIP_SALT'] as string | undefined) ?? "";
 const KEY = "spc_arcade_ad_free_until";
 const EVT = "spc-ad-free-change";
 
@@ -47,8 +47,10 @@ export function isValidCode(input: string) {
 }
 
 export function isValidReturnToken(token: string | null) {
-  return !!token && token === RETURN_TOKEN;
+  // Exige que RETURN_TOKEN soit bien défini dans l'environnement ET corresponde au jeton fourni
+  return Boolean(token && RETURN_TOKEN && token === RETURN_TOKEN);
 }
+
 
 export function activatePass() {
   const until = Date.now() + PASS_DURATION_MS;
