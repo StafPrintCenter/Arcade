@@ -198,7 +198,7 @@ export function PaymentReturnHandler() {
   if (!msg) return null;
   return (
     <div className="fixed bottom-4 left-1/2 z-50 w-[92%] max-w-md -translate-x-1/2 rounded-xl border border-primary/40 bg-card p-4 text-sm shadow-xl">
-      <button onClick={() => setMsg(null)} className="float-right text-muted-foreground" aria-label="Fermer">
+      <button onClick={() => setMsg(null)} className="float-right text-muted-foreground cursor-pointer" aria-label="Fermer">
         <X className="size-4" />
       </button>
       {msg}
