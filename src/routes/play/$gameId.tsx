@@ -59,6 +59,10 @@ function PlayPage() {
   const [result, setResult] = useState<GameResult | null>(null);
   const [freshBadges, setFreshBadges] = useState<string[]>([]);
   const [runKey, setRunKey] = useState(0);
+  const { adFree, ready: adReady } = useAdFree();
+  const [adPassed, setAdPassed] = useState(false);
+  const [vipOpen, setVipOpen] = useState(false);
+  const showStartAd = adReady && !adFree && !adPassed;
 
   const game = GAMES.find((g) => g.id === gameId);
   const Game = game ? COMPONENTS[game.id as GameId] : null;
@@ -163,6 +167,7 @@ function PlayPage() {
     setFreshBadges([]);
     setScore(0);
     setRunKey((k) => k + 1);
+    setAdPassed(false);
   }
 
   const customHeaderContent = (
@@ -194,7 +199,7 @@ function PlayPage() {
 
   return (
     <ArcadeShell headerContent={customHeaderContent}>
-      {hydrated ? (
+      {hydrated && adReady && !showStartAd ? (
         <Game
           key={runKey}
           profile={profile}
@@ -259,6 +264,8 @@ function PlayPage() {
                 />
               </div>
 
+              {!adFree ? <AdBanner slot={ADSENSE_SLOTS.result} className="mt-5" /> : null}
+
               <div className="mt-6 flex gap-2">
                 <Button className="flex-1" onClick={replay}>
                   Rejouer
@@ -271,6 +278,15 @@ function PlayPage() {
           </motion.div>
         ) : null}
       </AnimatePresence>
+
+      {showStartAd ? (
+        <AdInterstitial
+          slot={ADSENSE_SLOTS.interstitial}
+          onContinue={() => setAdPassed(true)}
+          onBuyPass={() => setVipOpen(true)}
+        />
+      ) : null}
+      <VipPassModal open={vipOpen} onClose={() => setVipOpen(false)} />
     </ArcadeShell>
   );
 }
