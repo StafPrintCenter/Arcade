@@ -137,7 +137,7 @@ export function VipPassModal({ open, onClose }: { open: boolean; onClose: () => 
                 </Button>
                 <button
                   onClick={() => setShowCode((s) => !s)}
-                  className="mt-4 w-full text-center text-sm text-muted-foreground underline"
+                  className="mt-4 w-full text-center text-sm text-muted-foreground underline cursor-pointer"
                 >
                   Déjà payé mais pas redirigé ? Entrez votre code
                 </button>
