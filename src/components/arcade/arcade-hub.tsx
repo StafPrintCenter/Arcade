@@ -66,6 +66,7 @@ export function ArcadeHub() {
             <Button variant="ghost" size="sm" onClick={resetProfile}>
               <RotateCcw className="mr-1 size-4" /> Réinitialiser
             </Button>
+            <VipPassButton />
           </div>
         </div>
 
