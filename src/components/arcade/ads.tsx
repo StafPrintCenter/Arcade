@@ -120,7 +120,7 @@ export function VipPassModal({ open, onClose }: { open: boolean; onClose: () => 
               <X className="size-5" />
             </button>
             <Crown className="size-8 text-primary" />
-            <h2 className="mt-2 font-display text-2xl">Pass Zéro Pub — 1 semaine</h2>
+            <h2 className="mt-2 font-display text-2xl">Pass Zéro Pub - 1 semaine</h2>
             {adFree ? (
               <p className="mt-3 rounded-xl bg-primary/10 p-3 text-sm text-primary">
                 👑 Pass actif — encore {formatRemaining(until)}. Merci pour votre soutien !
