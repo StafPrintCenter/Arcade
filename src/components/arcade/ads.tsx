@@ -3,14 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Crown, ExternalLink, Printer, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  ADSENSE_CLIENT,
-  FEDAPAY_URL,
-  formatRemaining,
-  isValidCode,
-  isValidReturnToken,
-  useAdFree,
-} from "@/lib/arcade/ads";
+import { ADSENSE_CLIENT, FEDAPAY_URL, formatRemaining, isValidCode, isValidReturnToken, useAdFree } from "@/lib/arcade/ads";
 
 declare global {
   interface Window {
