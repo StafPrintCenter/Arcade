@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { PageHeader, PageFooter } from "@/components/site";
+import { PaymentReturnHandler } from "@/components/arcade/ads";
 
 interface ArcadeShellProps {
   children: ReactNode;
