@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import { BADGES, GAMES } from "@/lib/arcade/data";
 import type { GameId, GameResult } from "@/lib/arcade/types";
+import { AdBanner, AdInterstitial, VipPassModal } from "@/components/arcade/ads";
+import { ADSENSE_SLOTS, useAdFree } from "@/lib/arcade/ads";
 import { ShareProgress, type GameProps } from "@/components/arcade";
 import { ArcadeShell } from "@/components/site/ArcadeShell";
 import {
