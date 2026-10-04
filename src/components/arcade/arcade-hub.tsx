@@ -6,6 +6,7 @@ import { ProfileSetup, TermsBanner } from "@/components/arcade/onboarding";
 import { UserProfileCard, GameCatalog, BadgesGrid, LocalLeaderboard } from "@/components/ArcadeHub";
 import { useArcadeProfile } from "@/hooks/useArcadeProfile";
 import { GENDERS } from "@/lib/arcade/data";
+import { VipPassButton } from "@/components/arcade/ads";
 
 export function ArcadeHub() {
   const { profile, hydrated, updateProfile, resetProfile, level, title, progress, next } = useArcadeProfile();
