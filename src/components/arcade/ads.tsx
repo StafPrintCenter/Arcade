@@ -38,7 +38,7 @@ export function AdBanner({ slot, className = "" }: { slot: string; className?: s
     );
   }
   return (
-    <div className={`min-h-[120px] overflow-hidden rounded-xl ${className}`}>
+    <div className={`min-h-30 overflow-hidden rounded-xl ${className}`}>
       <p className="mb-1 text-[10px] uppercase tracking-wider text-muted-foreground">Publicité</p>
       <ins
         className="adsbygoogle"
