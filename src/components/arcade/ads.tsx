@@ -29,7 +29,7 @@ export function AdBanner({ slot, className = "" }: { slot: string; className?: s
         href="https://stafprint.com"
         target="_blank"
         rel="noreferrer"
-        className={`flex min-h-[120px] flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-primary/40 bg-primary/5 p-4 text-center ${className}`}
+        className={`flex min-h-30 flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-primary/40 bg-primary/5 p-4 text-center ${className}`}
       >
         <Printer className="size-6 text-primary" />
         <p className="text-xs uppercase tracking-wider text-muted-foreground">Espace partenaire</p>
