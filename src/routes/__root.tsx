@@ -6,7 +6,6 @@ import appCss from "../styles.css?url";
 import { SITE, SITE_LINK } from "@/data/site";
 import logo from "@/assets/logos.json";
 import { NotFoundComponent, ErrorComponent } from "@/components/errors";
-import { PaymentReturnHandler } from "@/components/arcade/ads";
 
 const ARCADE_TITLE = `${SITE.tool} | Jeux Interactifs & Défis Design, Web et Prépresse - ${SITE.name}`;
 const ARCADE_DESC = `Plateforme de mini-jeux et défis technico-créatifs pour tester vos compétences en graphisme, prépresse, retouche d'image et création web avec ${SITE.name}.`;
