@@ -42,6 +42,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       /* Google */
       { name: "google-site-verification", content: "OdKxHpVkBSxk0mj4vD4OTmZPdVi5pWzyCu4QPIMHy9A" },
       { name: "google-adsense-account", content: "ca-pub-9682293308540812" },
+
+
+      < !--Script officiel AdSense-- >
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9682293308540812"
+        crossorigin="anonymous"
+      ></script>
     ],
     links: [
       { rel: "canonical", href: `${SITE_LINK.arcadeUrl}` },
