@@ -15,6 +15,8 @@ export function ArcadeShell({ children, headerContent }: ArcadeShellProps) {
         {children}
       </main>
       <PageFooter />
+
+      <PaymentReturnHandler />
     </div>
   );
 }
