@@ -33,7 +33,7 @@ export function AdBanner({ slot, className = "" }: { slot: string; className?: s
       >
         <Printer className="size-6 text-primary" />
         <p className="text-xs uppercase tracking-wider text-muted-foreground">Espace partenaire</p>
-        <p className="font-display text-base">STAF PRINT CENTER — Impression & design à Porto-Novo</p>
+        <p className="font-display text-base">STAF PRINT CENTER - Impression & design à Porto-Novo</p>
       </a>
     );
   }
