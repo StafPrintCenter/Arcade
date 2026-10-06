@@ -23,7 +23,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "1. Objet",
     body: [
-      "SPC Arcade est un hub de jeux pédagogiques édité par STAF PRINT CENTER (Porto-Novo, Bénin). Les présentes conditions encadrent l'utilisation du site arcade.stafprint.com. En jouant, vous les acceptez.",
+      "SPC Arcade est un hub de jeux pédagogiques édité par ${SITE.name} (Porto-Novo, Bénin). Les présentes conditions encadrent l'utilisation du site arcade.stafprint.com. En jouant, vous les acceptez.",
     ],
   },
   {
@@ -35,7 +35,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "3. Données personnelles",
     body: [
-      "Aucune donnée personnelle n'est collectée par STAF PRINT CENTER. Votre pseudo, ville, avatar, scores, XP et badges sont enregistrés uniquement dans le stockage local de votre navigateur.",
+      "Aucune donnée personnelle n'est collectée par ${SITE.name}. Votre pseudo, ville, avatar, scores, XP et badges sont enregistrés uniquement dans le stockage local de votre navigateur.",
       "Vider le cache ou changer d'appareil efface définitivement votre progression. Aucun autre joueur ne peut voir vos scores : le classement est strictement local.",
     ],
   },
@@ -55,7 +55,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "6. Pass Zéro Pub (FedaPay)",
     body: [
-      "Le Pass Zéro Pub supprime les publicités pendant 7 jours sur le navigateur où il est activé. Le paiement est traité par FedaPay ; STAF PRINT CENTER ne reçoit ni ne conserve vos informations de paiement.",
+      "Le Pass Zéro Pub supprime les publicités pendant 7 jours sur le navigateur où il est activé. Le paiement est traité par FedaPay ; ${SITE.name} ne reçoit ni ne conserve vos informations de paiement.",
       "Le pass est lié au navigateur (non transférable entre appareils) et non remboursable une fois activé. Le code de secours est personnel : son partage est interdit.",
     ],
   },
@@ -68,18 +68,18 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "8. Propriété intellectuelle",
     body: [
-      "La marque STAF PRINT CENTER, le nom SPC Arcade, les jeux, textes et visuels sont protégés. Toute reproduction sans autorisation est interdite.",
+      "La marque ${SITE.name}, le nom SPC Arcade, les jeux, textes et visuels sont protégés. Toute reproduction sans autorisation est interdite.",
     ],
   },
   {
     title: "9. Responsabilité",
     body: [
-      "Le service est fourni « en l'état ». STAF PRINT CENTER ne saurait être tenu responsable d'une perte de progression, d'une indisponibilité ou du contenu des annonces tierces.",
+      "Le service est fourni « en l'état ». ${SITE.name} ne saurait être tenu responsable d'une perte de progression, d'une indisponibilité ou du contenu des annonces tierces.",
     ],
   },
   {
     title: "10. Contact",
-    body: ["Pour toute question : STAF PRINT CENTER, Porto-Novo, Bénin — via stafprint.com."],
+    body: ["Pour toute question : ${SITE.name}, Porto-Novo, Bénin — via stafprint.com."],
   },
 ];
 
