@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { SITE } from "@/data/site";
 
-const TITLE = `CGU & Confidentialité - ${SITE.tool} -| ${SITE.name}`;
+const TITLE = `CGU & Confidentialité - ${SITE.tool} | ${SITE.name}`;
 const DESC = `Conditions générales d'utilisation et politique de confidentialité de ${SITE.tool}, le hub de jeux de ${SITE.name}.`;
 
 export const Route = createFileRoute("/cgu")({
