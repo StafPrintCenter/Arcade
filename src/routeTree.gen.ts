@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CguRouteImport } from './routes/cgu'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PlayGameIdRouteImport } from './routes/play/$gameId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CguRoute = CguRouteImport.update({
+  id: '/cgu',
+  path: '/cgu',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -31,30 +37,34 @@ const PlayGameIdRoute = PlayGameIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cgu': typeof CguRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/play/$gameId': typeof PlayGameIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cgu': typeof CguRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/play/$gameId': typeof PlayGameIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cgu': typeof CguRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/play/$gameId': typeof PlayGameIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/play/$gameId'
+  fullPaths: '/' | '/cgu' | '/sitemap.xml' | '/play/$gameId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/play/$gameId'
-  id: '__root__' | '/' | '/sitemap.xml' | '/play/$gameId'
+  to: '/' | '/cgu' | '/sitemap.xml' | '/play/$gameId'
+  id: '__root__' | '/' | '/cgu' | '/sitemap.xml' | '/play/$gameId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CguRoute: typeof CguRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   PlayGameIdRoute: typeof PlayGameIdRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cgu': {
+      id: '/cgu'
+      path: '/cgu'
+      fullPath: '/cgu'
+      preLoaderRoute: typeof CguRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CguRoute: CguRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   PlayGameIdRoute: PlayGameIdRoute,
 }
