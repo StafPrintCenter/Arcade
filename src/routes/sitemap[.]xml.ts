@@ -33,6 +33,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         // 2. Pages statiques de base
         const entries: SitemapEntry[] = [
           { path: "/", lastmod: TODAY, changefreq: "weekly", priority: "1.0" },
+          { path: "/cgu", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
         ];
 
         // 3. Ajout des jeux dynamiques
