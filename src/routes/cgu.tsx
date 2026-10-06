@@ -25,7 +25,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "1. Objet",
     body: [
-      `${SITE.tool} est un hub de jeux pédagogiques édité par ${SITE.name} (${SITE.tool}). Les présentes conditions encadrent l'utilisation du site ${stripProtocol(SITE_LINK.arcadeUrl)}. En jouant, vous les acceptez.`,
+      `${SITE.tool} est un hub de jeux pédagogiques édité par ${SITE.name}. Les présentes conditions encadrent l'utilisation du site ${stripProtocol(SITE_LINK.arcadeUrl)}. En jouant, vous les acceptez.`,
     ],
   },
   {
@@ -37,8 +37,8 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "3. Données personnelles",
     body: [
-      `Aucune donnée personnelle n'est collectée par ${SITE.name}. Votre pseudo, ville, avatar, scores, XP et badges sont enregistrés uniquement dans le stockage local de votre navigateur.",
-      "Vider le cache ou changer d'appareil efface définitivement votre progression. Aucun autre joueur ne peut voir vos scores : le classement est strictement local.`,
+      `Aucune donnée personnelle n'est collectée par ${SITE.name}. Votre pseudo, ville, avatar, scores, XP et badges sont enregistrés uniquement dans le stockage local de votre navigateur.
+      Vider le cache ou changer d'appareil efface définitivement votre progression. Aucun autre joueur ne peut voir vos scores. Le classement est strictement local.`,
     ],
   },
   {
