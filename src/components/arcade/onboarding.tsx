@@ -45,8 +45,7 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
         <li className="flex gap-3 rounded-xl border border-border bg-secondary/40 p-3">
           <Lock className="mt-0.5 size-4 shrink-0 text-primary" />
           <span>
-            <strong>Données locales uniquement.</strong> Votre pseudo, votre profil et vos scores restent
-            enregistrés uniquement dans votre navigateur.
+            <strong>Données locales uniquement.</strong> Votre pseudo, votre profil et vos scores restent enregistrés uniquement dans votre navigateur.
           </span>
         </li>
         <li className="flex gap-3 rounded-xl border border-border bg-secondary/40 p-3">
