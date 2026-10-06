@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { ArcadeShell } from "@/components/site";
 import { SITE, SITE_LINK } from "@/data/site";
 import { stripProtocol } from "@/lib/domain";
@@ -31,13 +31,12 @@ const SECTIONS: SectionItem[] = [
     title: "1. Objet",
     body: [
       <>
-        {SITE.tool} est un hub de jeux pédagogiques édité par {SITE.name}. Les
-        présentes conditions encadrent l'utilisation du site{" "}
+        {SITE.tool} est un hub de jeux pédagogiques édité par {SITE.name}. Les présentes conditions encadrent l'utilisation du site{" "}
         <a
           href={SITE_LINK.arcadeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary underline hover:text-primary/80"
+          className="underline hover:text-primary"
         >
           {stripProtocol(SITE_LINK.arcadeUrl)}
         </a>
@@ -54,7 +53,9 @@ const SECTIONS: SectionItem[] = [
   {
     title: "3. Données personnelles",
     body: [
-      `Aucune donnée personnelle n'est collectée par ${SITE.name}. Votre pseudo, ville, avatar, scores, XP et badges sont enregistrés uniquement dans le stockage local de votre navigateur. Vider le cache ou changer d'appareil efface définitivement votre progression. Aucun autre joueur ne peut voir vos scores. Le classement est strictly local.`,
+      <>
+        Aucune donnée personnelle n'est collectée par {SITE.name}. Votre pseudo, ville, avatar, scores, XP et badges sont enregistrés uniquement dans le stockage local de votre navigateur. Vider le cache ou changer d'appareil efface définitivement votre progression. Aucun autre joueur ne peut voir vos scores. Le classement est strictement local.
+      </>,
     ],
   },
   {
@@ -73,18 +74,18 @@ const SECTIONS: SectionItem[] = [
           href="https://adssettings.google.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary underline hover:text-primary/80"
+          className="underline hover:text-primary"
         >
           paramètres des annonces Google
         </a>
-        . Plus d'informations :{" "}
+        . Plus d'informations dans la{" "}
         <a
           href="https://policies.google.com/technologies/ads"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary underline hover:text-primary/80"
+          className="underline hover:text-primary"
         >
-          policies.google.com/technologies/ads
+          politique de Google relative aux publicités
         </a>
         .
       </>,
@@ -93,7 +94,9 @@ const SECTIONS: SectionItem[] = [
   {
     title: "6. Pass Zéro Pub (FedaPay)",
     body: [
-      `Le Pass Zéro Pub supprime les publicités pendant 7 jours sur le navigateur où il est activé. Le paiement est traité par FedaPay ; ${SITE.name} ne reçoit ni ne conserve vos informations de paiement.`,
+      <>
+        Le Pass Zéro Pub supprime les publicités pendant 7 jours sur le navigateur où il est activé. Le paiement est traité par FedaPay ;{" "} {SITE.name} ne reçoit ni ne conserve vos informations de paiement.
+      </>,
       "Le pass est lié au navigateur (non transférable entre appareils) et non remboursable une fois activé. Le code de secours est personnel : son partage est interdit.",
     ],
   },
@@ -106,48 +109,77 @@ const SECTIONS: SectionItem[] = [
   {
     title: "8. Propriété intellectuelle",
     body: [
-      `La marque ${SITE.name}, le nom ${SITE.tool}, les jeux, textes et visuels sont protégés. Toute reproduction sans autorisation est interdite.`,
+      <>
+        La marque {SITE.name}, le nom {SITE.tool}, les jeux, textes et visuels sont protégés. Toute reproduction sans autorisation est interdite.
+      </>,
     ],
   },
   {
     title: "9. Responsabilité",
     body: [
-      `Le service est fourni « en l'état ». ${SITE.name} ne saurait être tenu responsable d'une perte de progression, d'une indisponibilité ou du contenu des annonces tierces.`,
+      <>
+        Le service est fourni « en l'état ». {SITE.name} ne saurait être tenu responsable d'une perte de progression, d'une indisponibilité ou du contenu des annonces tierces.
+      </>,
     ],
   },
   {
     title: "10. Contact",
-    body: [`Pour toute question : ${SITE.name}, Porto-Novo, Bénin — via stafprint.com.`],
+    body: [
+      <>
+        Pour toute question : contactez {SITE.name} via{" "}
+        <a
+          href={`mailto:${SITE.email}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-primary"
+        >
+          {SITE.email}
+        </a>
+        .
+      </>,
+    ],
   },
 ];
 
 function CguPage() {
   return (
-    <ArcadeShell>
-      <div className="container max-w-4xl py-8 px-4 mx-auto">
-        <Link className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6" to="/">
-          <ArrowLeft className="h-4 w-4" />
-          Retour au hub
-        </Link>
+    <div>
+      <ArcadeShell>
+        <main className="mx-auto max-w-3xl px-4">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"
+          >
+            <ArrowLeft className="size-4" />
+            Retour au hub
+          </Link>
 
-        <h1 className="text-3xl font-bold mb-2">CGU & Confidentialité</h1>
-        <p className="text-sm text-muted-foreground mb-8">
-          Dernière mise à jour : octobre 2026
-        </p>
+          <h1 className="mt-4 font-display text-3xl sm:text-4xl">
+            CGU & Confidentialité
+          </h1>
 
-        <div className="space-y-8">
-          {SECTIONS.map((s, idx) => (
-            <section key={idx} className="space-y-3">
-              <h2 className="text-xl font-semibold">{s.title}</h2>
-              {s.body.map((p, i) => (
-                <p key={i} className="text-muted-foreground leading-relaxed">
-                  {p}
-                </p>
-              ))}
-            </section>
-          ))}
-        </div>
-      </div>
-    </ArcadeShell>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Dernière mise à jour : 06 octobre 2026
+          </p>
+
+          <div className="mt-8 space-y-6">
+            {SECTIONS.map((s) => (
+              <section key={s.title} className="card-arcade p-5">
+                <h2 className="font-display text-xl">{s.title}</h2>
+
+                {s.body.map((p, i) => (
+                  <p
+                    key={i}
+                    className="mt-2 text-sm leading-relaxed text-muted-foreground"
+                  >
+                    {p}
+                  </p>
+                ))}
+              </section>
+            ))}
+          </div>
+        </main>
+      </ArcadeShell>
+    </div>
   );
 }
