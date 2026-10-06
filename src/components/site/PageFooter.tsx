@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { SITE, SITE_LINK } from "@/data/site";
 import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon, WhatsAppIcon } from "@/components/site/icons";
 export function PageFooter() {
@@ -29,6 +30,20 @@ export function PageFooter() {
 
         {/* Liens de navigation & Réseaux sociaux */}
         <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+          <nav
+            aria-label="Navigation secondaire"
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground"
+          >
+            <Link
+              href="/cgu"
+              className="underline underline-offset-4 transition-colors hover:text-primary"
+            >
+              CGU & Confidentialité
+            </Link>
+          </nav>
+
+          <span className="hidden text-muted-foreground/30 sm:inline">|</span>
+
           <nav
             aria-label="Navigation secondaire"
             className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground"
