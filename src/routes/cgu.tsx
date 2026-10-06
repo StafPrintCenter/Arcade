@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
+import { ArcadeShell } from "@/components/site";
 import { SITE, SITE_LINK } from "@/data/site";
 
 const TITLE = `CGU & Confidentialité - ${SITE.tool} | ${SITE.name}`;
@@ -85,24 +86,30 @@ const SECTIONS: { title: string; body: string[] }[] = [
 
 function CguPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10 sm:py-14">
-      <Link to="/" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary">
-        <ArrowLeft className="size-4" /> Retour au hub
-      </Link>
-      <h1 className="mt-4 font-display text-3xl sm:text-4xl">CGU & Confidentialité</h1>
-      <p className="mt-2 text-sm text-muted-foreground">Dernière mise à jour : octobre 2026</p>
-      <div className="mt-8 space-y-6">
-        {SECTIONS.map((s) => (
-          <section key={s.title} className="card-arcade p-5">
-            <h2 className="font-display text-xl">{s.title}</h2>
-            {s.body.map((p, i) => (
-              <p key={i} className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {p}
-              </p>
+    <div>
+      <ArcadeShell>
+        <main className="mx-auto max-w-3xl px-4">
+          <Link to="/" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary">
+            <ArrowLeft className="size-4" /> Retour au hub
+          </Link>
+          <h1 className="mt-4 font-display text-3xl sm:text-4xl">CGU & Confidentialité</h1>
+          <p className="mt-2 text-sm text-muted-foreground">Dernière mise à jour : octobre 2026</p>
+          <div className="mt-8 space-y-6">
+            {SECTIONS.map((s) => (
+              <section key={s.title} className="card-arcade p-5">
+                <h2 className="font-display text-xl">{s.title}</h2>
+                {s.body.map((p, i) => (
+                  <p key={i} className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {p}
+                  </p>
+                ))}
+              </section>
             ))}
-          </section>
-        ))}
-      </div>
-    </main>
+          </div>
+
+        </main>
+      </ArcadeShell>
+    </div>
+
   );
 }
