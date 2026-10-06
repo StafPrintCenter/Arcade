@@ -23,7 +23,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "1. Objet",
     body: [
-      "${SITE.tool} est un hub de jeux pédagogiques édité par ${SITE.name} (${SITE.city}). Les présentes conditions encadrent l'utilisation du site arcade.stafprint.com. En jouant, vous les acceptez.",
+      "${SITE.tool} est un hub de jeux pédagogiques édité par ${SITE.name} (Porto-Novo, Bénin). Les présentes conditions encadrent l'utilisation du site arcade.stafprint.com. En jouant, vous les acceptez.",
     ],
   },
   {
