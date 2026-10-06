@@ -25,7 +25,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "1. Objet",
     body: [
-      `${SITE.tool} est un hub de jeux pédagogiques édité par ${SITE.name} (${SITE.tool}). Les présentes conditions encadrent l'utilisation du site ${SITE_LINK.arcadeUrl}. En jouant, vous les acceptez.`,
+      `${SITE.tool} est un hub de jeux pédagogiques édité par ${SITE.name} (${SITE.tool}). Les présentes conditions encadrent l'utilisation du site (${stripProtocol(SITE_LINK.arcadeUrl)}). En jouant, vous les acceptez.`,
     ],
   },
   {
