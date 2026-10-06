@@ -34,8 +34,7 @@ export function PageFooter() {
             aria-label="Navigation secondaire"
             className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground"
           >
-            <Link
-              href="/cgu"
+            <Link to="/cgu"
               className="underline underline-offset-4 transition-colors hover:text-primary"
             >
               CGU & Confidentialité
