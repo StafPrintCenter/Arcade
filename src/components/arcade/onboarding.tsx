@@ -89,8 +89,14 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
       </div>
 
       <p className="mt-4 text-xs text-muted-foreground">
-        Les jeux sont pédagogiques et
-        fictifs ; les briefs clients sont imaginaires. Vider le cache du navigateur efface votre progression. En savoir plus dans nos{" "}
+        Les jeux sont pédagogiques et fictifs ; les briefs clients sont imaginaires. Vider le cache du navigateur efface votre progression. En savoir plus dans nos{" "}
+        <a
+          href="/cgu"
+          className="underline hover:text-primary"
+        >
+          CGU & Confidentialité
+        </a>{" "}
+        et nos{" "}
         <a
           href={`${SITE_LINK.landingUrl}/legal/mentions#cookies`}
           target="_blank"
