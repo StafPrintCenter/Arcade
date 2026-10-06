@@ -51,8 +51,7 @@ export function TermsBanner({ onAccept }: { onAccept: () => void }) {
         <li className="flex gap-3 rounded-xl border border-border bg-secondary/40 p-3">
           <EyeOff className="mt-0.5 size-4 shrink-0 text-primary" />
           <span>
-            <strong>Vos scores sont privés.</strong> Le classement est strictement local : aucun autre joueur ne
-            peut voir vos parties, votre XP ou vos badges.
+            <strong>Vos scores sont privés.</strong> Le classement est strictement local : aucun autre joueur ne peut voir vos parties, votre XP ou vos badges.
           </span>
         </li>
         <li className="flex gap-3 rounded-xl border border-border bg-secondary/40 p-3">
