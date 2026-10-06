@@ -23,7 +23,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "1. Objet",
     body: [
-      "SPC Arcade est un hub de jeux pédagogiques édité par ${SITE.name} (Porto-Novo, Bénin). Les présentes conditions encadrent l'utilisation du site arcade.stafprint.com. En jouant, vous les acceptez.",
+      "${SITE.tool} est un hub de jeux pédagogiques édité par ${SITE.name} (${SITE.city}). Les présentes conditions encadrent l'utilisation du site arcade.stafprint.com. En jouant, vous les acceptez.",
     ],
   },
   {
@@ -68,7 +68,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "8. Propriété intellectuelle",
     body: [
-      "La marque ${SITE.name}, le nom SPC Arcade, les jeux, textes et visuels sont protégés. Toute reproduction sans autorisation est interdite.",
+      "La marque ${SITE.name}, le nom ${SITE.tool}, les jeux, textes et visuels sont protégés. Toute reproduction sans autorisation est interdite.",
     ],
   },
   {
