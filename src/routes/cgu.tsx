@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
-import { SITE } from "@/data/site";
+import { SITE, SITE_LINK } from "@/data/site";
 
 const TITLE = `CGU & Confidentialité - ${SITE.tool} | ${SITE.name}`;
 const DESC = `Conditions générales d'utilisation et politique de confidentialité de ${SITE.tool}, le hub de jeux de ${SITE.name}.`;
@@ -23,7 +23,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "1. Objet",
     body: [
-      "${SITE.tool} est un hub de jeux pédagogiques édité par ${SITE.name} (Porto-Novo, Bénin). Les présentes conditions encadrent l'utilisation du site arcade.stafprint.com. En jouant, vous les acceptez.",
+      "${SITE.tool} est un hub de jeux pédagogiques édité par ${SITE.name} (${SITE.tool}). Les présentes conditions encadrent l'utilisation du site arcade.stafprint.com. En jouant, vous les acceptez.",
     ],
   },
   {
