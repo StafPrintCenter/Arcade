@@ -21,11 +21,28 @@ export const Route = createFileRoute("/cgu")({
   component: CguPage,
 });
 
-const SECTIONS: { title: string; body: string[] }[] = [
+type SectionItem = {
+  title: string;
+  body: (string | React.ReactNode)[];
+};
+
+const SECTIONS: SectionItem[] = [
   {
     title: "1. Objet",
     body: [
-      `${SITE.tool} est un hub de jeux pédagogiques édité par ${SITE.name}. Les présentes conditions encadrent l'utilisation du site ${stripProtocol(SITE_LINK.arcadeUrl)}. En jouant, vous les acceptez.`,
+      <>
+        {SITE.tool} est un hub de jeux pédagogiques édité par {SITE.name}. Les
+        présentes conditions encadrent l'utilisation du site{" "}
+        <a
+          href={SITE_LINK.arcadeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary underline hover:text-primary/80"
+        >
+          {stripProtocol(SITE_LINK.arcadeUrl)}
+        </a>
+        . En jouant, vous les acceptez.
+      </>,
     ],
   },
   {
@@ -37,8 +54,7 @@ const SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "3. Données personnelles",
     body: [
-      `Aucune donnée personnelle n'est collectée par ${SITE.name}. Votre pseudo, ville, avatar, scores, XP et badges sont enregistrés uniquement dans le stockage local de votre navigateur.
-      Vider le cache ou changer d'appareil efface définitivement votre progression. Aucun autre joueur ne peut voir vos scores. Le classement est strictement local.`,
+      `Aucune donnée personnelle n'est collectée par ${SITE.name}. Votre pseudo, ville, avatar, scores, XP et badges sont enregistrés uniquement dans le stockage local de votre navigateur. Vider le cache ou changer d'appareil efface définitivement votre progression. Aucun autre joueur ne peut voir vos scores. Le classement est strictly local.`,
     ],
   },
   {
@@ -51,14 +67,34 @@ const SECTIONS: { title: string; body: string[] }[] = [
     title: "5. Publicités et cookies",
     body: [
       "Le site affiche des annonces fournies par Google AdSense. Google et ses partenaires peuvent utiliser des cookies pour diffuser des annonces basées sur vos visites sur ce site et d'autres sites.",
-      "Vous pouvez désactiver la publicité personnalisée dans les paramètres des annonces Google (adssettings.google.com). Plus d'informations : policies.google.com/technologies/ads.",
+      <>
+        Vous pouvez désactiver la publicité personnalisée dans les{" "}
+        <a
+          href="https://adssettings.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary underline hover:text-primary/80"
+        >
+          paramètres des annonces Google
+        </a>
+        . Plus d'informations :{" "}
+        <a
+          href="https://policies.google.com/technologies/ads"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary underline hover:text-primary/80"
+        >
+          policies.google.com/technologies/ads
+        </a>
+        .
+      </>,
     ],
   },
   {
     title: "6. Pass Zéro Pub (FedaPay)",
     body: [
-      `Le Pass Zéro Pub supprime les publicités pendant 7 jours sur le navigateur où il est activé. Le paiement est traité par FedaPay ; ${SITE.name} ne reçoit ni ne conserve vos informations de paiement.",
-      "Le pass est lié au navigateur (non transférable entre appareils) et non remboursable une fois activé. Le code de secours est personnel : son partage est interdit.`,
+      `Le Pass Zéro Pub supprime les publicités pendant 7 jours sur le navigateur où il est activé. Le paiement est traité par FedaPay ; ${SITE.name} ne reçoit ni ne conserve vos informations de paiement.`,
+      "Le pass est lié au navigateur (non transférable entre appareils) et non remboursable une fois activé. Le code de secours est personnel : son partage est interdit.",
     ],
   },
   {
@@ -87,30 +123,31 @@ const SECTIONS: { title: string; body: string[] }[] = [
 
 function CguPage() {
   return (
-    <div>
-      <ArcadeShell>
-        <main className="mx-auto max-w-3xl px-4">
-          <Link to="/" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary">
-            <ArrowLeft className="size-4" /> Retour au hub
-          </Link>
-          <h1 className="mt-4 font-display text-3xl sm:text-4xl">CGU & Confidentialité</h1>
-          <p className="mt-2 text-sm text-muted-foreground">Dernière mise à jour : octobre 2026</p>
-          <div className="mt-8 space-y-6">
-            {SECTIONS.map((s) => (
-              <section key={s.title} className="card-arcade p-5">
-                <h2 className="font-display text-xl">{s.title}</h2>
-                {s.body.map((p, i) => (
-                  <p key={i} className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {p}
-                  </p>
-                ))}
-              </section>
-            ))}
-          </div>
+    <ArcadeShell>
+      <div className="container max-w-4xl py-8 px-4 mx-auto">
+        <Link className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6" to="/">
+          <ArrowLeft className="h-4 w-4" />
+          Retour au hub
+        </Link>
 
-        </main>
-      </ArcadeShell>
-    </div>
+        <h1 className="text-3xl font-bold mb-2">CGU & Confidentialité</h1>
+        <p className="text-sm text-muted-foreground mb-8">
+          Dernière mise à jour : octobre 2026
+        </p>
 
+        <div className="space-y-8">
+          {SECTIONS.map((s, idx) => (
+            <section key={idx} className="space-y-3">
+              <h2 className="text-xl font-semibold">{s.title}</h2>
+              {s.body.map((p, i) => (
+                <p key={i} className="text-muted-foreground leading-relaxed">
+                  {p}
+                </p>
+              ))}
+            </section>
+          ))}
+        </div>
+      </div>
+    </ArcadeShell>
   );
 }
